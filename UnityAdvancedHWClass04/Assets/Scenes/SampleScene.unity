@@ -541,8 +541,8 @@ Transform:
   m_Father: {fileID: 1595575416}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &604614572
-CapsuleCollider:
+--- !u!65 &604614572
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -551,9 +551,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &604614573
 MeshRenderer:
@@ -1197,8 +1196,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 537f4902213cd4340b58a3a664b8fceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  savingKey: 49
   Player: {fileID: 307061454}
+  savingKey: 49
+  loadingKey: 50
+  toggleAutoKey: 116
 --- !u!1 &1567256774
 GameObject:
   m_ObjectHideFlags: 0
