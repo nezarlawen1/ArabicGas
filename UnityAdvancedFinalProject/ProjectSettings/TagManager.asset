@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Bullet
+  - Terminal1
+  - Enemy
+  - Terminal2
+  - Level 1 Elevator
+  - Bridge
+  - Level 2 Elevator
+  - Terminal3
+  - 2ndOrder
+  - Lvl2Final
+  - BOSS
+  - HealingStation
+  - ComandorAudio
+  - Pod
+  - PlayerHealth
+  - Win
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Enemy
+  - Ground
+  - Player
+  - Cage
+  - Ground01
+  - Ground02
+  - Ground03
+  - Planes
+  - Boss
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
