@@ -45,18 +45,19 @@ public class NetworkManager : MonoBehaviour
 
     public void StartUDP()
     {
-        if (PortInUse(SendingPort))
+        if (!PortInUse(ListeningPort))
         {
             endPoint = new IPEndPoint(IPAddress.Any, ListeningPort); //this line will listen to all IP addresses in the network
             Debug.Log("Player 1 connected");
-            PortText.text = ListeningPort.ToString();
+            PortText.text = "Listening Port: " + ListeningPort.ToString() + "\nSending Port: " + SendingPort.ToString() + "\nPlayer 1 = X";
             gameManager.IsPlayer1 = true;
+            gameManager.IsPlayer1Turn = true;
         }
         else
         {
             endPoint = new IPEndPoint(IPAddress.Any, SendingPort);
             Debug.Log("Player 2 connected");
-            PortText.text = SendingPort.ToString();
+            PortText.text = "Listening Port: " + SendingPort.ToString() + "\nSending Port: " + ListeningPort.ToString() + "\nPlayer 2 = O";
             gameManager.IsPlayer1 = false;
         }
         //endPoint = new IPEndPoint(IPAddress.Parse(LocalIPAddress), ListeningPort); //this line will listen to a specific IP address
@@ -122,7 +123,7 @@ public class NetworkManager : MonoBehaviour
         }
     }
 
-    public void SendMessage(GameObject thisPoint)
+    public void SendMessage(GameObject thisPoint, bool turn)
     {
         UdpClient send_client = new UdpClient();
         IPEndPoint send_endPoint = new IPEndPoint(IPAddress.Parse(LocalIPAddress), SendingPort);
@@ -134,9 +135,38 @@ public class NetworkManager : MonoBehaviour
         {
             send_endPoint = new IPEndPoint(IPAddress.Parse(LocalIPAddress), SendingPort);
         }
-        byte[] bytes = Encoding.ASCII.GetBytes(thisPoint.name);
+        int tempTurn;
+        if (turn == true)
+        {
+            tempTurn = 1;
+        }
+        else
+        {
+            tempTurn = 0;
+        }
+        byte[] bytes = Encoding.ASCII.GetBytes(thisPoint.name + tempTurn);
         send_client.Send(bytes, bytes.Length, send_endPoint);
         send_client.Close();
+        //Debug.Log("Sent message: " + message);
+    }    
+    public void SendMessage(string reset)
+    {
+        UdpClient send_client = new UdpClient();
+        IPEndPoint send_endPoint = new IPEndPoint(IPAddress.Parse(LocalIPAddress), SendingPort);
+
+            send_endPoint = new IPEndPoint(IPAddress.Parse(LocalIPAddress), ListeningPort);
+            byte[] bytes = Encoding.ASCII.GetBytes(reset);
+            send_client.Send(bytes, bytes.Length, send_endPoint);
+
+            send_endPoint = new IPEndPoint(IPAddress.Parse(LocalIPAddress), SendingPort);
+            bytes = Encoding.ASCII.GetBytes(reset);
+            send_client.Send(bytes, bytes.Length, send_endPoint);
+            send_client.Close();
+
+
+        //byte[] bytes = Encoding.ASCII.GetBytes(reset);
+        //send_client.Send(bytes, bytes.Length, send_endPoint);
+        //send_client.Close();
         //Debug.Log("Sent message: " + message);
     }
 }
