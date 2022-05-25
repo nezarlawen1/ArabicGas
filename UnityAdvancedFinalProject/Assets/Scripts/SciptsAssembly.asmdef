@@ -1,0 +1,16 @@
+{
+    "name": "SciptsAssembly",
+    "rootNamespace": "",
+    "references": [
+        "GUID:39d01e37d20514f4eac6a65a071c2fb6"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
