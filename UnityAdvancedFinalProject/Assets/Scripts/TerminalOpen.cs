@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TerminalOpen : MonoBehaviour
 {
-    [SerializeField] Button Interact;
+    [SerializeField] public Button Interact;
 
     [Header("Door 1")]
     [SerializeField] GameObject Door;
@@ -31,6 +31,8 @@ public class TerminalOpen : MonoBehaviour
     private GameObject PlayerHPRef;
     private bool _usedHeal = false;
 
+    public bool IsColliding;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,17 +42,18 @@ public class TerminalOpen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(IsClicked + this.gameObject.tag);
+        //Debug.Log(IsClicked + this.gameObject.tag);
     }
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Colliding with: " + gameObject.tag);
+        //Debug.Log("Colliding with: " + gameObject.tag);
         if (other.tag == "Player")
         {
             Interact.gameObject.SetActive(true);
             switch (gameObject.tag)
             {
                 case "HealingStation":
+                    IsColliding = true;
                     if (IsClicked && _usedHeal == false)
                     {
                         Debug.Log("Healing");
@@ -60,9 +63,11 @@ public class TerminalOpen : MonoBehaviour
                         GetComponent<AudioSource>().Play();
                         GetComponent<BoxCollider>().enabled = false;
                         Interact.gameObject.SetActive(false);
+                        IsColliding = false;
                     }
                     break;
                 case "Terminal1":
+                    IsColliding = true;
                     if (IsClicked)
                     {
                         Door1Animation.Play();
@@ -70,9 +75,11 @@ public class TerminalOpen : MonoBehaviour
                         IsClicked = false;
                         GetComponent<BoxCollider>().enabled = false;
                         Interact.gameObject.SetActive(false);
+                        IsColliding = false;
                     }
                     break;
                 case "Terminal2":
+                    IsColliding = true;
                     if (IsClicked)
                     {
                         Door2Animation.Play();
@@ -80,9 +87,11 @@ public class TerminalOpen : MonoBehaviour
                         IsClicked = false;
                         GetComponent<BoxCollider>().enabled = false;
                         Interact.gameObject.SetActive(false);
+                        IsColliding = false;
                     }
                     break;
                 case "Terminal3":
+                    IsColliding = true;
                     if (IsClicked)
                     {
                         Door3Animation.Play();
@@ -90,6 +99,7 @@ public class TerminalOpen : MonoBehaviour
                         IsClicked = false;
                         GetComponent<BoxCollider>().enabled = false;
                         Interact.gameObject.SetActive(false);
+                        IsColliding = false;
                     }
                     break;
                 case "Level 1 Elevator":
@@ -107,6 +117,7 @@ public class TerminalOpen : MonoBehaviour
                     }
                     break;
                 case "Bridge":
+                    IsColliding = true;
                     if (IsClicked)
                     {
                         BridgeAnimation.Play();
@@ -114,6 +125,7 @@ public class TerminalOpen : MonoBehaviour
                         IsClicked = false;
                         GetComponent<BoxCollider>().enabled = false;
                         Interact.gameObject.SetActive(false);
+                        IsColliding = false;
                     }
                     break;
                 case "Pod":
@@ -136,6 +148,7 @@ public class TerminalOpen : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Interact.gameObject.SetActive(false);
+        IsColliding = false;
     }
     public void IsButtonClicked()
     {

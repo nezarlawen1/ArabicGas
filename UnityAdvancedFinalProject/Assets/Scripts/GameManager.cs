@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Scene: " + _currentScene);
-        Debug.Log("Pointer: " + _pointer);
+        //Debug.Log("Scene: " + _currentScene);
+        //Debug.Log("Pointer: " + _pointer);
         if (!(_pointer >= _allLists[_currentScene].Length))
         {
             if (_allLists[_currentScene][_pointer].isPlaying)
