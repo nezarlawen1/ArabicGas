@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayTestScriptV1
 {
-    // A Test behaves as an ordinary method
-    [Test]
-    public void PlayTestScriptV1SimplePasses()
-    {
-        // Use the Assert class to test conditions
-    }
+    //// A Test behaves as an ordinary method
+    //[Test]
+    //public void PlayTestScriptV1SimplePasses()
+    //{
+    //    // Use the Assert class to test conditions
+    //}
 
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
     // `yield return null;` to skip a frame.
@@ -60,6 +60,12 @@ public class PlayTestScriptV1
         EnemyAI firstEnemy = GameObject.Find("thc6").GetComponent<EnemyAI>();
         Debug.Log(firstEnemy.name);
         Assert.IsTrue(firstEnemy.playerInsightRange);
+        yield return new WaitForSeconds(1);
+
+        // Finding The Second Enemy & Checking If PLayerInSight NOT
+        EnemyAI secondEnemy = GameObject.Find("thc6 (3)").GetComponent<EnemyAI>();
+        Debug.Log(secondEnemy.name);
+        Assert.IsFalse(secondEnemy.playerInsightRange);
         yield return new WaitForSeconds(1);
     }
 }
