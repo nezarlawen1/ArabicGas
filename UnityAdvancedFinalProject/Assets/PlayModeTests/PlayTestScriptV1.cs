@@ -17,7 +17,7 @@ public class PlayTestScriptV1
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
     // `yield return null;` to skip a frame.
     [UnityTest]
-    public IEnumerator PlayTestScriptV1WithEnumeratorPasses()
+    public IEnumerator MovingPlayer()
     {
         // Loading Scene 1
         SceneManager.LoadScene(1);
@@ -44,9 +44,41 @@ public class PlayTestScriptV1
         }
         Assert.AreNotEqual(pos, player.transform.position);
         yield return new WaitForSeconds(1);
+    }
+
+
+    [UnityTest]
+    public IEnumerator InteractWithTerminalToHeal()
+    {
+        // Loading Scene 1
+        SceneManager.LoadScene(1);
+        yield return new WaitForSeconds(1);
+
+
+        // Moving Player
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Vector3 pos = player.transform.position;
+        for (int i = 0; i < 25; i++)
+        {
+            Vector3 tempDirection = Vector3.forward;
+            Vector3 moveTarget = player.transform.position + tempDirection;
+            player.transform.position = Vector3.MoveTowards(player.transform.position, moveTarget, 10 * Time.deltaTime);
+            yield return new WaitForFixedUpdate();
+        }
+        for (int i = 0; i < 35; i++)
+        {
+            Vector3 tempDirection = Vector3.right;
+            Vector3 moveTarget = player.transform.position - tempDirection;
+            player.transform.position = Vector3.MoveTowards(player.transform.position, moveTarget, 10 * Time.deltaTime);
+            yield return new WaitForFixedUpdate();
+        }
+        yield return new WaitForSeconds(1);
 
 
         // Checking If Reached Healing Station & Healing Player
+        PlayerHP playerHP = GameObject.Find("PlayerHealth").GetComponentInChildren<PlayerHP>();
+        int lastHP = playerHP.currentHP; 
+
         TerminalOpen healingStation = GameObject.Find("Healing Station (1)").GetComponentInChildren<TerminalOpen>();
         Assert.IsTrue(healingStation.IsColliding == true);
         if (healingStation.IsColliding == true)
@@ -54,7 +86,17 @@ public class PlayTestScriptV1
             healingStation.Interact.onClick.Invoke();
         }
         yield return new WaitForSeconds(1);
+        Assert.AreNotEqual(lastHP, playerHP.currentHP);
+        yield return new WaitForSeconds(1);
+    }
 
+
+    [UnityTest]
+    public IEnumerator EnemyAITest()
+    {
+        // Loading Scene 1
+        SceneManager.LoadScene(1);
+        yield return new WaitForSeconds(1);
 
         // Finding The First Enemy & Checking If PLayerInSight
         EnemyAI firstEnemy = GameObject.Find("thc6").GetComponent<EnemyAI>();
