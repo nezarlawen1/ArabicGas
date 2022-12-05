@@ -9,16 +9,6 @@ public class Destroyer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DestroyBullet());
-    }
-
-    IEnumerator DestroyBullet()
-    {
-
-        yield return new WaitForSeconds(destroyTime);
-        Destroy(gameObject);
-
-    }
-
-    
+        Destroy(gameObject, destroyTime);
+    } 
 }
