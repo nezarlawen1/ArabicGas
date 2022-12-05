@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] GameObject bulletPrefab, shootPoint;
     [SerializeField] AudioSource _gunSound;
-    public float bulletSpeed, recoilForce;
+    public float bulletSpeed;
 
 
     private Rigidbody _rb;
