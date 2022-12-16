@@ -10,6 +10,7 @@ public class HealthHandler : MonoBehaviour
     public HealthSystem _healthSystem;
 
     [SerializeField] private HealthBar _healthBar;
+    [SerializeField] private BloodScreen _bloodScreen;
     [SerializeField] private int _maxHP;
     [SerializeField] private int _currentHP;
 
@@ -18,6 +19,7 @@ public class HealthHandler : MonoBehaviour
     {
         _healthSystem = new HealthSystem(_maxHP);
         if (_healthBar != null) _healthBar.Setup(_healthSystem);
+        if (_bloodScreen != null) _bloodScreen.Setup(_healthSystem);
         _healthSystem.OnDeath += _healthSystem_OnDeath;
     }
 

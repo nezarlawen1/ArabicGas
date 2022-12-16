@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 6106751443888450687}
+  _bloodScreen: {fileID: 0}
   _maxHP: 100
   _currentHP: 0
 --- !u!1 &5361268244782391739
@@ -273,7 +274,7 @@ MonoBehaviour:
   _usedBy: {fileID: 7391281200836825262}
   _canAffect: 0
   _damagerType: 0
-  _damageAmount: 50
+  _damageAmount: 10
 --- !u!1 &7391281200836825262
 GameObject:
   m_ObjectHideFlags: 0
