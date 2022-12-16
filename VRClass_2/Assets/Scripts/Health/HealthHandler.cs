@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using UnityEngine;
 
 public class HealthHandler : MonoBehaviour
@@ -9,10 +10,20 @@ public class HealthHandler : MonoBehaviour
 
     public HealthSystem _healthSystem;
 
+    [Header("Basic")]
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private BloodScreen _bloodScreen;
     [SerializeField] private int _maxHP;
     [SerializeField] private int _currentHP;
+
+    [Header("Regen")]
+    [SerializeField] private bool _canRegen;
+    [SerializeField] private int _regenAmount;
+    [SerializeField] private float _regenRate;
+    [SerializeField] private float _regenDelay;
+    private float _regenDelayTimer;
+    private float _regenRateTimer;
+    private bool _isRegenerating;
 
 
     private void Awake()
@@ -21,6 +32,20 @@ public class HealthHandler : MonoBehaviour
         if (_healthBar != null) _healthBar.Setup(_healthSystem);
         if (_bloodScreen != null) _bloodScreen.Setup(_healthSystem);
         _healthSystem.OnDeath += _healthSystem_OnDeath;
+        _healthSystem.OnDamaged += _healthSystem_OnDamaged;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        HealthRegen();
+        _currentHP = _healthSystem.CurrentHealth;
+    }
+
+
+    public void ToggleHealthBar(bool state)
+    {
+        if (_healthBar != null) _healthBar.gameObject.SetActive(state);
     }
 
     private void _healthSystem_OnDeath(object sender, EventArgs e)
@@ -28,15 +53,39 @@ public class HealthHandler : MonoBehaviour
         if (OnDeathOccured != null) OnDeathOccured(this, EventArgs.Empty);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void HealthRegen()
     {
-        _currentHP = _healthSystem.CurrentHealth;
+        if (_canRegen && _isRegenerating)
+        {
+            if (_regenDelayTimer >= _regenDelay)
+            {
+                if (_regenRateTimer >= _regenRate)
+                {
+                    _healthSystem.Heal(_regenAmount);
+                    _regenRateTimer = 0;
+                    if (_currentHP >= _maxHP)
+                    {
+                        _isRegenerating = false;
+                    }
+                }
+                else
+                {
+                    _regenRateTimer += Time.deltaTime;
+                }
+            }
+            else
+            {
+                _regenDelayTimer += Time.deltaTime;
+            }
+        }
     }
 
-    public void ToggleHealthBar(bool state)
+
+    private void _healthSystem_OnDamaged(object sender, EventArgs e)
     {
-        if (_healthBar != null) _healthBar.gameObject.SetActive(state);
+        _isRegenerating = true;
+        _regenDelayTimer = 0;
+        _regenRateTimer = 0;
     }
 
     private void TakeDamage(GameObject damagerObj)
