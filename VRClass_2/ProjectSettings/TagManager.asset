@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Damager
+  - Mag1911
   layers:
   - Default
   - TransparentFX
@@ -13,9 +14,9 @@ TagManager:
   - Ground
   - Water
   - UI
+  - Grab Interactable
   - Player
-  - 
-  - 
+  - Body
   - 
   - 
   - 

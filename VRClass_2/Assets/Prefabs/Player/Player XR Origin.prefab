@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 7662428227757776046}
   - component: {fileID: 6462478351221989881}
   - component: {fileID: 6666494449756916466}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Player XR Origin
   m_TagString: Player
   m_Icon: {fileID: 0}
