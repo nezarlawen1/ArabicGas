@@ -278,7 +278,7 @@ MonoBehaviour:
   _usedBy: {fileID: 7391281200836825262}
   _canAffect: 0
   _damagerType: 0
-  _damageAmount: 50
+  _damageAmount: 10
 --- !u!1 &7391281200836825262
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +353,7 @@ MonoBehaviour:
     m_Bits: 8
   PlayerLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   Agent: {fileID: 8409563634790882400}
   Player: {fileID: 0}
   EnemyHealthHandler: {fileID: 403412171583163899}
@@ -362,7 +362,7 @@ MonoBehaviour:
   CanChase: 1
   CanFly: 0
   PatrolRange: 0
-  AttackCoolDownTime: 5
+  AttackCoolDownTime: 10
   AlreadyAttacked: 0
   HitSuccess: 0
   SightRange: 50
