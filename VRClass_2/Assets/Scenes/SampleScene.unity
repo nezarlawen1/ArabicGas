@@ -143,7 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 30261814}
   - component: {fileID: 30261815}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 292590594}
   - component: {fileID: 292590593}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -724,7 +724,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 438468137}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere Attach Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,7 +764,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 488521021}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mag Location
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2770,7 +2770,7 @@ GameObject:
   - component: {fileID: 1174594565}
   - component: {fileID: 1174594566}
   - component: {fileID: 1174594564}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2808,7 +2808,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5992962214304855954}
+      - m_Target: {fileID: 5483491199656476084}
         m_TargetAssemblyTypeName: Gun, Assembly-CSharp
         m_MethodName: isMagazineIn
         m_Mode: 6
@@ -2820,7 +2820,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 5992962214304855954}
+      - m_Target: {fileID: 5483491199656476084}
         m_TargetAssemblyTypeName: Gun, Assembly-CSharp
         m_MethodName: SetMagazine
         m_Mode: 1
@@ -2835,7 +2835,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5992962214304855954}
+      - m_Target: {fileID: 5483491199656476084}
         m_TargetAssemblyTypeName: Gun, Assembly-CSharp
         m_MethodName: isMagazineIn
         m_Mode: 6
@@ -3726,7 +3726,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1350916270}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3761,7 +3761,7 @@ GameObject:
   - component: {fileID: 1365670457}
   - component: {fileID: 1365670456}
   - component: {fileID: 1365670455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AK-47 Mag
   m_TagString: MagAK47
   m_Icon: {fileID: 0}
@@ -3863,13 +3863,13 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 1905150358}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -3943,6 +3943,7 @@ Transform:
   - {fileID: 1092639848916420985}
   - {fileID: 4511256199789360909}
   - {fileID: 9018559244620990759}
+  - {fileID: 1905150358}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -4428,7 +4429,7 @@ MonoBehaviour:
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -4955,6 +4956,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1251262922289351744, guid: 7592da0afe90c214a91d43eb73f7d52d, type: 3}
   m_PrefabInstance: {fileID: 1535949518}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1905150357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1905150358}
+  m_Layer: 6
+  m_Name: Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1905150358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905150357}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1365670458}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1936847712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6002,7 +6033,7 @@ GameObject:
   - component: {fileID: 7694980588637614413}
   - component: {fileID: 7583517777153275340}
   - component: {fileID: 3429777090290220925}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6116,7 +6147,7 @@ GameObject:
   - component: {fileID: 7965474050751050544}
   - component: {fileID: 3478869341330176130}
   - component: {fileID: 658227193935923504}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6134,7 +6165,7 @@ GameObject:
   - component: {fileID: 7754896514310474013}
   - component: {fileID: 9069182382537010025}
   - component: {fileID: 6077541152997942771}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6532,7 +6563,7 @@ GameObject:
   - component: {fileID: 5443923031053158857}
   - component: {fileID: 8404437164030052942}
   - component: {fileID: 6324187672323625220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6700,7 +6731,7 @@ GameObject:
   - component: {fileID: 1849866738063328384}
   - component: {fileID: 5196854706198196183}
   - component: {fileID: 6602653014925234135}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6876,7 +6907,7 @@ GameObject:
   - component: {fileID: 3707205227563428767}
   - component: {fileID: 1087958217402328981}
   - component: {fileID: 4086230743503932527}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7008,13 +7039,28 @@ GameObject:
   - component: {fileID: 5719926309170402751}
   - component: {fileID: 7786960153069730582}
   - component: {fileID: 8915448472243530321}
-  m_Layer: 0
+  - component: {fileID: 2311698516568706926}
+  m_Layer: 6
   m_Name: magazine.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &2311698516568706926
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2311698516568706925}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1713243809576878530, guid: cab07661fc680a34e879419d4db49972, type: 3}
 --- !u!4 &2327884459819713820
 Transform:
   m_ObjectHideFlags: 0
@@ -7050,7 +7096,7 @@ GameObject:
   - component: {fileID: 7595647497808602699}
   - component: {fileID: 8441410284454443228}
   - component: {fileID: 271511710605151337}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fuse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7137,13 +7183,28 @@ GameObject:
   - component: {fileID: 4511256199789360909}
   - component: {fileID: 1789263936968276193}
   - component: {fileID: 4191265227631829834}
-  m_Layer: 0
+  - component: {fileID: 2485802092843266306}
+  m_Layer: 6
   m_Name: Cube.044
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &2485802092843266306
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2485802092843266305}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3925360246919112806, guid: cab07661fc680a34e879419d4db49972, type: 3}
 --- !u!1 &2557783109751276131
 GameObject:
   m_ObjectHideFlags: 0
@@ -7155,7 +7216,7 @@ GameObject:
   - component: {fileID: 3744130324207820852}
   - component: {fileID: 9035537760588647002}
   - component: {fileID: 3687795239891857566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7205,7 +7266,7 @@ GameObject:
   - component: {fileID: 2392114647245153920}
   - component: {fileID: 2022277212010827626}
   - component: {fileID: 7971733734181685071}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 1.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7337,7 +7398,7 @@ GameObject:
   - component: {fileID: 1777377933614781425}
   - component: {fileID: 8542978086257544734}
   - component: {fileID: 9098391938881401822}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7396,7 +7457,7 @@ GameObject:
   - component: {fileID: 4069989189922975180}
   - component: {fileID: 767974287043899118}
   - component: {fileID: 3208065823527350901}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7414,7 +7475,7 @@ GameObject:
   - component: {fileID: 8343881945264944920}
   - component: {fileID: 8361495679859379483}
   - component: {fileID: 2717980118675026422}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7449,7 +7510,7 @@ GameObject:
   - component: {fileID: 904247733033623266}
   - component: {fileID: 5675518674782533152}
   - component: {fileID: 1306391832916405580}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rear sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7713,7 +7774,7 @@ GameObject:
   - component: {fileID: 7083639458490098564}
   - component: {fileID: 6745080502290574096}
   - component: {fileID: 693791178966953847}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.038
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7841,13 +7902,28 @@ GameObject:
   - component: {fileID: 3276088384454656890}
   - component: {fileID: 7928299308503125091}
   - component: {fileID: 4004029188137395564}
-  m_Layer: 0
+  - component: {fileID: 3882265798941156777}
+  m_Layer: 6
   m_Name: Plane.027
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &3882265798941156777
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3882265798941156776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4723010164368009254, guid: cab07661fc680a34e879419d4db49972, type: 3}
 --- !u!1 &3967681838443048962
 GameObject:
   m_ObjectHideFlags: 0
@@ -7859,13 +7935,28 @@ GameObject:
   - component: {fileID: 4615231140525370384}
   - component: {fileID: 853415760027857265}
   - component: {fileID: 3794737386398269685}
-  m_Layer: 0
+  - component: {fileID: 3967681838443048963}
+  m_Layer: 6
   m_Name: Plane.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &3967681838443048963
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3967681838443048962}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -470067213634067786, guid: cab07661fc680a34e879419d4db49972, type: 3}
 --- !u!33 &3992025943628996065
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7926,7 +8017,7 @@ GameObject:
   - component: {fileID: 2124298466819201470}
   - component: {fileID: 6057377266870401314}
   - component: {fileID: 5551020158837942370}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.045
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8168,7 +8259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3471960567044797639}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AK-47
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8194,7 +8285,7 @@ GameObject:
   - component: {fileID: 3397201937816187597}
   - component: {fileID: 4245596254610007541}
   - component: {fileID: 322918923645217566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.035
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8242,7 +8333,7 @@ GameObject:
   - component: {fileID: 4768083035789417328}
   - component: {fileID: 7099613538004601607}
   - component: {fileID: 8189782854066969440}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MPL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8449,7 +8540,7 @@ GameObject:
   - component: {fileID: 7649242697824158205}
   - component: {fileID: 1054927017833546557}
   - component: {fileID: 6162537829173951382}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8489,7 +8580,7 @@ GameObject:
   - component: {fileID: 8750804181657916181}
   - component: {fileID: 2189331029653945596}
   - component: {fileID: 4697663006939673825}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8521,7 +8612,7 @@ GameObject:
   - component: {fileID: 4625327125658319032}
   - component: {fileID: 4412478206741307419}
   - component: {fileID: 5404861893457900908}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8685,7 +8776,7 @@ GameObject:
   - component: {fileID: 1291848251198336878}
   - component: {fileID: 4355995312744475184}
   - component: {fileID: 7291977431449148769}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: kozhuh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8701,7 +8792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5483491199137098669}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8753,7 +8844,7 @@ GameObject:
   - component: {fileID: 5483491199656476083}
   - component: {fileID: 5483491199656476084}
   - component: {fileID: 5483491199656476087}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon AK-47
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9119,7 +9210,7 @@ GameObject:
   - component: {fileID: 6148878585580019949}
   - component: {fileID: 5536070389188439086}
   - component: {fileID: 7653999596054074595}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9167,7 +9258,7 @@ GameObject:
   - component: {fileID: 8720871192320284904}
   - component: {fileID: 8458753622451988401}
   - component: {fileID: 4037652565271001237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9207,7 +9298,7 @@ GameObject:
   - component: {fileID: 14175744714561147}
   - component: {fileID: 4807205157757208167}
   - component: {fileID: 6278489187585763937}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9592,13 +9683,28 @@ GameObject:
   - component: {fileID: 9018559244620990759}
   - component: {fileID: 863735984459223315}
   - component: {fileID: 4619216924413949367}
-  m_Layer: 0
+  - component: {fileID: 6056170522292524457}
+  m_Layer: 6
   m_Name: Cube.023
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &6056170522292524457
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6056170522292524456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7771613508976059695, guid: cab07661fc680a34e879419d4db49972, type: 3}
 --- !u!33 &6057377266870401314
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9896,7 +10002,7 @@ GameObject:
   - component: {fileID: 7595387211375884011}
   - component: {fileID: 6785758361033426886}
   - component: {fileID: 890941349536753577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9914,13 +10020,28 @@ GameObject:
   - component: {fileID: 5143045116506133772}
   - component: {fileID: 9036918272395813203}
   - component: {fileID: 1612235545695163966}
-  m_Layer: 0
+  - component: {fileID: 6418708008566960607}
+  m_Layer: 6
   m_Name: magazine.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &6418708008566960607
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6418708008566960606}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1213209770318941949, guid: cab07661fc680a34e879419d4db49972, type: 3}
 --- !u!23 &6589091985536224131
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10012,7 +10133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5465189375036055061}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10101,7 +10222,7 @@ GameObject:
   - component: {fileID: 1212659234421882949}
   - component: {fileID: 8704415628863213403}
   - component: {fileID: 2364785420519623462}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.034
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10460,13 +10581,28 @@ GameObject:
   - component: {fileID: 9161870306485903819}
   - component: {fileID: 7833745198447145826}
   - component: {fileID: 6846738217003343468}
-  m_Layer: 0
+  - component: {fileID: 6985010083607130086}
+  m_Layer: 6
   m_Name: Sphere.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &6985010083607130086
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6985010083607130085}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1928204645961537321, guid: cab07661fc680a34e879419d4db49972, type: 3}
 --- !u!33 &7024123656695037519
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10522,7 +10658,7 @@ GameObject:
   - component: {fileID: 1088085707535761376}
   - component: {fileID: 4118974442028630560}
   - component: {fileID: 731194241785658358}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10819,13 +10955,28 @@ GameObject:
   - component: {fileID: 1092639848916420985}
   - component: {fileID: 7024123656695037519}
   - component: {fileID: 5925247598235911698}
-  m_Layer: 0
+  - component: {fileID: 7876501471126051260}
+  m_Layer: 6
   m_Name: magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &7876501471126051260
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7876501471126051259}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6127348048242964064, guid: cab07661fc680a34e879419d4db49972, type: 3}
 --- !u!1 &7909813221325322762
 GameObject:
   m_ObjectHideFlags: 0
@@ -10837,7 +10988,7 @@ GameObject:
   - component: {fileID: 7244660345915566050}
   - component: {fileID: 5650716386879945593}
   - component: {fileID: 5180906819120173599}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10863,7 +11014,7 @@ GameObject:
   - component: {fileID: 2458389224741776360}
   - component: {fileID: 1445570946486210143}
   - component: {fileID: 8238429650739315225}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11077,13 +11228,28 @@ GameObject:
   - component: {fileID: 7422759750560325311}
   - component: {fileID: 891173620733062014}
   - component: {fileID: 2963804239595138764}
-  m_Layer: 0
+  - component: {fileID: 8470547051194171552}
+  m_Layer: 6
   m_Name: Plane.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &8470547051194171552
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8470547051194171551}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6894428203817054813, guid: cab07661fc680a34e879419d4db49972, type: 3}
 --- !u!4 &8506337210298210918
 Transform:
   m_ObjectHideFlags: 0
@@ -11117,7 +11283,7 @@ GameObject:
   - component: {fileID: 6664084253612795823}
   - component: {fileID: 4466445748090971860}
   - component: {fileID: 6304886326703372654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.020
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11171,7 +11337,7 @@ GameObject:
   - component: {fileID: 4178986304047728876}
   - component: {fileID: 7441785217103548376}
   - component: {fileID: 3293090051873493012}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11340,7 +11506,7 @@ GameObject:
   - component: {fileID: 1418601528745348051}
   - component: {fileID: 5839437255433717158}
   - component: {fileID: 6149931712309036973}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11437,7 +11603,7 @@ GameObject:
   - component: {fileID: 3331005522647601677}
   - component: {fileID: 3198033985632024768}
   - component: {fileID: 159054014881740880}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11455,7 +11621,7 @@ GameObject:
   - component: {fileID: 5696860239782967562}
   - component: {fileID: 9057215181212424568}
   - component: {fileID: 9000192860897263401}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
