@@ -1,10 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
---- !u!1 &1729262446504279853
-========
 --- !u!1 &1669396913013102789
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,91 +8,20 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
-  - component: {fileID: 2068352504516519319}
-  - component: {fileID: 3106243707107551794}
-  - component: {fileID: 936589809808367352}
-========
   - component: {fileID: 1669396913013102786}
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   m_Layer: 0
-  m_Name: raygun
+  m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
---- !u!4 &2068352504516519319
-========
 --- !u!4 &1669396913013102786
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
-  m_GameObject: {fileID: 1729262446504279853}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0.035, y: 0.034, z: 0.018}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1963282300123275936}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
---- !u!33 &3106243707107551794
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729262446504279853}
-  m_Mesh: {fileID: -5495902117074765545, guid: 3359d5f6743d3684ab993ba1c230bbe8, type: 3}
---- !u!23 &936589809808367352
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729262446504279853}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: -876546973899608171, guid: 3359d5f6743d3684ab993ba1c230bbe8, type: 3}
-  - {fileID: -491490594218739996, guid: 3359d5f6743d3684ab993ba1c230bbe8, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &1963282300123275937
-========
   m_GameObject: {fileID: 1669396913013102789}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: -0.055600002, y: 0.06340003, z: -0.3888}
@@ -106,7 +31,6 @@ MeshRenderer:
   m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1669396913533390558
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,16 +38,6 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
-  - component: {fileID: 1963282300123275936}
-  - component: {fileID: 1963282300123275938}
-  - component: {fileID: 1963282300123275939}
-  - component: {fileID: 1963282300123275941}
-  - component: {fileID: 1963282300123275940}
-  - component: {fileID: 1963282300123275943}
-  m_Layer: 0
-  m_Name: Weapon RayGun
-========
   - component: {fileID: 1669396913533390559}
   - component: {fileID: 1669396913533390557}
   - component: {fileID: 1669396913533390556}
@@ -132,35 +46,17 @@ GameObject:
   - component: {fileID: 1669396913533390552}
   m_Layer: 0
   m_Name: Weapon AK-47
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
---- !u!4 &1963282300123275936
-========
 --- !u!4 &1669396913533390559
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
-  m_GameObject: {fileID: 1963282300123275937}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.495, y: 0.637, z: -0.7321}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2068352504516519319}
-  - {fileID: 1963282300676732093}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!54 &1963282300123275938
-========
   m_GameObject: {fileID: 1669396913533390558}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.495, y: 0.791, z: -1.433}
@@ -171,17 +67,12 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!54 &1669396913533390557
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
-  m_GameObject: {fileID: 1963282300123275937}
-========
   m_GameObject: {fileID: 1669396913533390558}
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -191,21 +82,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
---- !u!114 &1963282300123275939
-========
 --- !u!114 &1669396913533390556
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
-  m_GameObject: {fileID: 1963282300123275937}
-========
   m_GameObject: {fileID: 1669396913533390558}
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
@@ -324,72 +207,42 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
---- !u!65 &1963282300123275941
-========
 --- !u!65 &1669396913533390554
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
-  m_GameObject: {fileID: 1963282300123275937}
-========
   m_GameObject: {fileID: 1669396913533390558}
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
-  m_Size: {x: 0.06335664, y: 0.18550462, z: 0.3824519}
-  m_Center: {x: 0.010606289, y: -0.0110017955, z: 0.04812318}
---- !u!114 &1963282300123275940
-========
   m_Size: {x: 0.06335664, y: 0.25, z: 0.75}
   m_Center: {x: 0.058, y: 0, z: 0}
 --- !u!114 &1669396913533390555
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
-  m_GameObject: {fileID: 1963282300123275937}
-========
   m_GameObject: {fileID: 1669396913533390558}
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4787a31dc4262f4db682d251c66447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
-  bulletPrefab: {fileID: 2421014608052477385, guid: a4e353cdfc67a5f4e911ce2b661003ac, type: 3}
-  shootPoint: {fileID: 1963282300676732090}
-  _gunSound: {fileID: 1963282300123275943}
-  bulletSpeed: 500
---- !u!82 &1963282300123275943
-========
   bulletPrefab: {fileID: 0}
   shootPoint: {fileID: 1669396913013102789}
   _gunSound: {fileID: 1669396913533390552}
   bulletSpeed: 500
 --- !u!82 &1669396913533390552
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
-  m_GameObject: {fileID: 1963282300123275937}
-========
   m_GameObject: {fileID: 1669396913533390558}
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -479,13 +332,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon RayGun.prefab
---- !u!1 &1963282300676732090
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-========
 --- !u!1001 &7825001416789368899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -547,29 +393,4 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cab07661fc680a34e879419d4db49972, type: 3}
   m_PrefabInstance: {fileID: 7825001416789368899}
->>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1963282300676732093}
-  m_Layer: 0
-  m_Name: ShootPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1963282300676732093
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963282300676732090}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0423, y: 0.029, z: 0.2479}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1963282300123275936}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
