@@ -353,7 +353,7 @@ MonoBehaviour:
     m_Bits: 8
   PlayerLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   Agent: {fileID: 8409563634790882400}
   Player: {fileID: 0}
   EnemyHealthHandler: {fileID: 403412171583163899}
