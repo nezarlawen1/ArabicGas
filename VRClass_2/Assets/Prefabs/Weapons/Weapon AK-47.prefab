@@ -1,6 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+--- !u!1 &2585181624322952726
+========
 --- !u!1 &1669396913013102789
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,27 +12,53 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+  - component: {fileID: 2585181624322952727}
+  - component: {fileID: 2585181624322952725}
+  - component: {fileID: 2585181624322952724}
+  - component: {fileID: 2585181624322952722}
+  - component: {fileID: 2585181624322952723}
+  - component: {fileID: 2585181624322952720}
+========
   - component: {fileID: 1669396913013102786}
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   m_Layer: 0
-  m_Name: ShootPoint
+  m_Name: Weapon 1911 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+--- !u!4 &2585181624322952727
+========
 --- !u!4 &1669396913013102786
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+  m_GameObject: {fileID: 2585181624322952726}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.406, y: 0.637, z: -0.469}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5802150386553683101}
+  - {fileID: 2585181624843769866}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!54 &2585181624322952725
+========
   m_GameObject: {fileID: 1669396913013102789}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0556, y: 0.0634, z: 0.3632}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.055600002, y: 0.06340003, z: -0.3888}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1669396913533390559}
-  m_RootOrder: 1
+  m_Father: {fileID: 7718400279402891176}
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1669396913533390558
 GameObject:
@@ -63,17 +93,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7718400279402891176}
-  - {fileID: 1669396913013102786}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!54 &1669396913533390557
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+  m_GameObject: {fileID: 2585181624322952726}
+========
   m_GameObject: {fileID: 1669396913533390558}
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -83,13 +117,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+--- !u!114 &2585181624322952724
+========
 --- !u!114 &1669396913533390556
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+  m_GameObject: {fileID: 2585181624322952726}
+========
   m_GameObject: {fileID: 1669396913533390558}
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
@@ -208,42 +250,72 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+--- !u!65 &2585181624322952722
+========
 --- !u!65 &1669396913533390554
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+  m_GameObject: {fileID: 2585181624322952726}
+========
   m_GameObject: {fileID: 1669396913533390558}
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+  m_Size: {x: 0.06335664, y: 0.18550462, z: 0.3824519}
+  m_Center: {x: 0.010606289, y: -0.0110017955, z: 0.04812318}
+--- !u!114 &2585181624322952723
+========
   m_Size: {x: 0.06335664, y: 0.25, z: 0.75}
   m_Center: {x: 0.058, y: 0, z: 0}
 --- !u!114 &1669396913533390555
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+  m_GameObject: {fileID: 2585181624322952726}
+========
   m_GameObject: {fileID: 1669396913533390558}
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4787a31dc4262f4db682d251c66447d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8998744431905520990, guid: 6c4ea7338c95d1d46b890ded1af8b9a9, type: 3}
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+  bulletPrefab: {fileID: 919132149155446097, guid: 8ed905a1a44d6b4429949feb17ef8c0a, type: 3}
+  shootPoint: {fileID: 2585181624843769869}
+  _gunSound: {fileID: 2585181624322952720}
+  bulletSpeed: 500
+--- !u!82 &2585181624322952720
+========
+  bulletPrefab: {fileID: 0}
   shootPoint: {fileID: 1669396913013102789}
   _gunSound: {fileID: 1669396913533390552}
   bulletSpeed: 500
 --- !u!82 &1669396913533390552
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+  m_GameObject: {fileID: 2585181624322952726}
+========
   m_GameObject: {fileID: 1669396913533390558}
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -333,11 +405,70 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+--- !u!1 &2585181624843769869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2585181624843769866}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2585181624843769866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2585181624843769869}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0008, y: 0.0672, z: 0.1727}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2585181624322952727}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &8127642301186019687
+========
 --- !u!1001 &7825001416789368899
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+    m_TransformParent: {fileID: 2585181624322952727}
+    m_Modifications:
+    - target: {fileID: 1591203665574240233, guid: af69b63255b49204c836050d6a31dfa0, type: 3}
+      propertyPath: m_Name
+      value: M1911 PAS
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327884460534328826, guid: af69b63255b49204c836050d6a31dfa0, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327884460534328826, guid: af69b63255b49204c836050d6a31dfa0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327884460534328826, guid: af69b63255b49204c836050d6a31dfa0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327884460534328826, guid: af69b63255b49204c836050d6a31dfa0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327884460534328826, guid: af69b63255b49204c836050d6a31dfa0, type: 3}
+========
     m_TransformParent: {fileID: 1669396913533390559}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cab07661fc680a34e879419d4db49972, type: 3}
@@ -357,10 +488,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cab07661fc680a34e879419d4db49972, type: 3}
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+    - target: {fileID: 2327884460534328826, guid: af69b63255b49204c836050d6a31dfa0, type: 3}
+========
     - target: {fileID: -8679921383154817045, guid: cab07661fc680a34e879419d4db49972, type: 3}
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -376,14 +512,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: cab07661fc680a34e879419d4db49972, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+    - target: {fileID: 2327884460534328826, guid: af69b63255b49204c836050d6a31dfa0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2327884460534328826, guid: af69b63255b49204c836050d6a31dfa0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327884460534328826, guid: af69b63255b49204c836050d6a31dfa0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2327884460534328826, guid: af69b63255b49204c836050d6a31dfa0, type: 3}
+========
     - target: {fileID: -8679921383154817045, guid: cab07661fc680a34e879419d4db49972, type: 3}
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+    - target: {fileID: 2327884460534328826, guid: af69b63255b49204c836050d6a31dfa0, type: 3}
+========
+    - target: {fileID: -8679921383154817045, guid: cab07661fc680a34e879419d4db49972, type: 3}
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Weapons/Weapon 1911 1.prefab
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: af69b63255b49204c836050d6a31dfa0, type: 3}
+--- !u!4 &5802150386553683101 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2327884460534328826, guid: af69b63255b49204c836050d6a31dfa0, type: 3}
+  m_PrefabInstance: {fileID: 8127642301186019687}
+========
     - target: {fileID: 919132149155446097, guid: cab07661fc680a34e879419d4db49972, type: 3}
       propertyPath: m_Name
       value: AK-47
@@ -394,4 +558,5 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cab07661fc680a34e879419d4db49972, type: 3}
   m_PrefabInstance: {fileID: 7825001416789368899}
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Weapons/Weapon AK-47.prefab
   m_PrefabAsset: {fileID: 0}
