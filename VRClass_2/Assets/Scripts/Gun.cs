@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.XR.Interaction.Toolkit;
 using Random = UnityEngine.Random;
 
@@ -12,12 +13,13 @@ public class Gun : MonoBehaviour
     [SerializeField] AudioSource _gunSound;
     [SerializeField] Magazine Magazine;
     [SerializeField] XRSocketInteractorTag interactor;
+    [SerializeField] GameObject Slider;
     public float bulletSpeed;
     public bool isMagIn = false;
 
     private Rigidbody _rb;
     private XRGrabInteractable _interactableGun;
-
+    private bool CockedGun = false;
 
     private void Awake()
     {
@@ -25,6 +27,15 @@ public class Gun : MonoBehaviour
         _interactableGun = GetComponent<XRGrabInteractable>();
         //Magazine = interactor.selectTarget.gameObject.GetComponent<Magazine>();
         SetupInteractableEvents();
+    }
+    private void Update()
+    {
+        if (Slider.transform.localPosition.y >= 1 && Slider.transform.localPosition.y <= 1.2)
+        {
+            CockedGun = true;
+        }
+        if (!isMagIn)
+            CockedGun = false;
     }
     public void isMagazineIn(bool state)
     {
@@ -41,8 +52,8 @@ public class Gun : MonoBehaviour
 
     private void StartShooting(ActivateEventArgs args)
     {
-        if (isMagIn)
-        Shoot();
+        if (isMagIn && CockedGun)
+            Shoot();
     }
 
     public void Shoot()

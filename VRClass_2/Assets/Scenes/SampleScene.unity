@@ -188,6 +188,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!153 &322800162 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 6520110287123410054, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+  m_PrefabInstance: {fileID: 6520110287123410048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &362402769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -391,7 +396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7662428227757776044, guid: 592925a00b0b4244e83257bf6628d04e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.425
+      value: -0.387
       objectReference: {fileID: 0}
     - target: {fileID: 7662428227757776044, guid: 592925a00b0b4244e83257bf6628d04e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -427,6 +432,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592925a00b0b4244e83257bf6628d04e, type: 3}
+--- !u!153 &589330977 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 1478869186611798065, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
+  m_PrefabInstance: {fileID: 5450161947968886576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &602769760
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,6 +994,11 @@ Transform:
   m_Father: {fileID: 1331592788}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &791272062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1478869186611798064, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
+  m_PrefabInstance: {fileID: 5450161947968886576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &850259182
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,6 +2064,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339535634}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1403640963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8288515987572628123, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+  m_PrefabInstance: {fileID: 6520110287123410048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1444297783
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,6 +2981,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon RayGun
       objectReference: {fileID: 0}
+    - target: {fileID: 1963282300123275937, guid: 94c0faf64e6a18347a75ba95bd6c9b32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1963282300123275939, guid: 94c0faf64e6a18347a75ba95bd6c9b32, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -3040,9 +3064,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1037609113}
     - target: {fileID: 1768113704562581666, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
+      propertyPath: Slider
+      value: 
+      objectReference: {fileID: 791272062}
+    - target: {fileID: 1768113704562581666, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
       propertyPath: Magazine
       value: 
       objectReference: {fileID: 1565892655}
+    - target: {fileID: 1768113704562581666, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
+      propertyPath: SliderJoint
+      value: 
+      objectReference: {fileID: 589330977}
     - target: {fileID: 1768113704562581669, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -3160,6 +3192,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon AK-47
       objectReference: {fileID: 0}
+    - target: {fileID: 1613788347390316852, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+      propertyPath: Slider
+      value: 
+      objectReference: {fileID: 1403640963}
+    - target: {fileID: 1613788347390316852, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+      propertyPath: SliderJoint
+      value: 
+      objectReference: {fileID: 322800162}
     - target: {fileID: 5483491199656476082, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -3172,6 +3212,14 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1037609113}
+    - target: {fileID: 6520110287123410052, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520110287123410052, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
 --- !u!1001 &8803289578480649651

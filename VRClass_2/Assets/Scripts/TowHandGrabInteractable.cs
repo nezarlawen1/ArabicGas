@@ -62,23 +62,23 @@ public class TowHandGrabInteractable : XRGrabInteractable
 
     public void OnSecondHandGrab(XRBaseInteractor interactor)
     {
-        Debug.Log("Second Hand Grab");
+        //Debug.Log("Second Hand Grab");
         secondInteractor = interactor;
     }
     public void OnSecondHandRelease(XRBaseInteractor interactor)
     {
-        Debug.Log("Second Hand Release");
+        //Debug.Log("Second Hand Release");
         secondInteractor = null;
     }
     protected override void OnSelectEntered(XRBaseInteractor interactor)
     {
-        Debug.Log("First Grab Enter");
+        //Debug.Log("First Grab Enter");
         base.OnSelectEntered(interactor);
         attachInitialRotation = interactor.attachTransform.localRotation;
     }
     protected override void OnSelectExited(XRBaseInteractor interactor)
     {
-        Debug.Log("First Grab Exit");
+        //Debug.Log("First Grab Exit");
         base.OnSelectExited(interactor);
         secondInteractor = null;
         interactor.attachTransform.localRotation = attachInitialRotation;
