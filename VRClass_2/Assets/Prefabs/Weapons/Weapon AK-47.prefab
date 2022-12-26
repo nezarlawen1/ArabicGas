@@ -681,6 +681,9 @@ MonoBehaviour:
   _gunSound: {fileID: 1613788347390316855}
   Magazine: {fileID: 0}
   interactor: {fileID: 6520110286150469764}
+  Slider: {fileID: 8288515987572628123}
+  recoilBody: {fileID: 0}
+  Force: 2
   bulletSpeed: 500
   isMagIn: 0
 --- !u!82 &1613788347390316855
