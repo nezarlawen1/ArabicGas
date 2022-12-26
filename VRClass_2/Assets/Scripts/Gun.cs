@@ -14,6 +14,8 @@ public class Gun : MonoBehaviour
     [SerializeField] Magazine Magazine;
     [SerializeField] XRSocketInteractorTag interactor;
     [SerializeField] GameObject Slider;
+    [SerializeField] Rigidbody recoilBody;
+    [SerializeField] float Force;
     public float bulletSpeed;
     public bool isMagIn = false;
 
@@ -63,6 +65,8 @@ public class Gun : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, shootPoint.transform.position, shootPoint.transform.rotation);
             bullet.GetComponent<Rigidbody>().AddForce(shootPoint.transform.forward * bulletSpeed * Time.deltaTime, ForceMode.Impulse);
             Magazine.RemoveBullet();
+            recoilBody.AddForce(-shootPoint.transform.forward * Force, ForceMode.Impulse);
+            recoilBody.transform.localRotation = Quaternion.AngleAxis(-10 * Force,Vector3.right);
             _gunSound.pitch = Random.Range(0.9f, 1.2f);
             _gunSound.Play();
         }
