@@ -374,14 +374,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3645412794638959056, guid: 592925a00b0b4244e83257bf6628d04e, type: 3}
-      propertyPath: m_Radius
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 5951761332235994267, guid: 592925a00b0b4244e83257bf6628d04e, type: 3}
-      propertyPath: m_Radius
-      value: 0.04
-      objectReference: {fileID: 0}
     - target: {fileID: 7662428227757776044, guid: 592925a00b0b4244e83257bf6628d04e, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -429,6 +421,10 @@ PrefabInstance:
     - target: {fileID: 7662428227757776083, guid: 592925a00b0b4244e83257bf6628d04e, type: 3}
       propertyPath: m_Name
       value: Player XR Origin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662428227799223511, guid: 592925a00b0b4244e83257bf6628d04e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592925a00b0b4244e83257bf6628d04e, type: 3}
@@ -2379,6 +2375,11 @@ PrefabInstance:
       objectReference: {fileID: 1037609113}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2493c4add3434704c95b8b42bd3fc702, type: 3}
+--- !u!54 &1632292335 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 926868666645353944, guid: 592925a00b0b4244e83257bf6628d04e, type: 3}
+  m_PrefabInstance: {fileID: 530007696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1687205792
 GameObject:
   m_ObjectHideFlags: 0
@@ -3064,6 +3065,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1037609113}
     - target: {fileID: 1768113704562581666, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
+      propertyPath: Force
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768113704562581666, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
       propertyPath: Slider
       value: 
       objectReference: {fileID: 791272062}
@@ -3071,6 +3076,10 @@ PrefabInstance:
       propertyPath: Magazine
       value: 
       objectReference: {fileID: 1565892655}
+    - target: {fileID: 1768113704562581666, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
+      propertyPath: recoilBody
+      value: 
+      objectReference: {fileID: 1632292335}
     - target: {fileID: 1768113704562581666, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
       propertyPath: SliderJoint
       value: 
@@ -3193,9 +3202,17 @@ PrefabInstance:
       value: Weapon AK-47
       objectReference: {fileID: 0}
     - target: {fileID: 1613788347390316852, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+      propertyPath: Force
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613788347390316852, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
       propertyPath: Slider
       value: 
       objectReference: {fileID: 1403640963}
+    - target: {fileID: 1613788347390316852, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+      propertyPath: recoilBody
+      value: 
+      objectReference: {fileID: 1632292335}
     - target: {fileID: 1613788347390316852, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
       propertyPath: SliderJoint
       value: 
