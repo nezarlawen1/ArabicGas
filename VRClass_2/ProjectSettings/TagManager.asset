@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Damager
   - Mag1911
+  - MagAK47
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Grab Interactable
   - Player
   - Body
-  - 
+  - 2ndHand Grab
   - 
   - 
   - 
