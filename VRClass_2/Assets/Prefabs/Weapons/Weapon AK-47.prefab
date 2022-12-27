@@ -678,14 +678,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4700246164459946120, guid: c153f687b0c5d9d4eb7ff964052a6bbd, type: 3}
   shootPoint: {fileID: 1613788346869368618}
-  _gunSound: {fileID: 1613788347390316855}
   Magazine: {fileID: 0}
-  interactor: {fileID: 6520110286150469764}
-  Slider: {fileID: 8288515987572628123}
-  recoilBody: {fileID: 0}
+  _gunSound: {fileID: 1613788347390316855}
   Force: 2
   bulletSpeed: 500
   isMagIn: 0
+  CockedGun: 0
+  ControllerTriggerPushed: 0
+  recoilBody: {fileID: 0}
+  interactor: {fileID: 6520110286150469764}
+  RightHandTrig: {fileID: 0}
+  LeftHandTrig: {fileID: 0}
 --- !u!82 &1613788347390316855
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3491,10 +3494,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1613788347390316852}
+        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
+        m_MethodName: IsControllerTriggerPushed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1613788347390316852}
+        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
+        m_MethodName: IsControllerTriggerPushed
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Activated:
     m_PersistentCalls:
       m_Calls: []
