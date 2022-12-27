@@ -681,7 +681,7 @@ MonoBehaviour:
   Magazine: {fileID: 0}
   _gunSound: {fileID: 1613788347390316855}
   Force: 2
-  bulletSpeed: 500
+  bulletSpeed: 1000
   isMagIn: 0
   CockedGun: 0
   ControllerTriggerPushed: 0
