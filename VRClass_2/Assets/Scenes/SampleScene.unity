@@ -3058,22 +3058,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1478869186611798064, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
-      propertyPath: m_TagString
-      value: Slider1911
-      objectReference: {fileID: 0}
     - target: {fileID: 1478869186611798066, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1037609113}
-    - target: {fileID: 1478869186611798068, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
-      propertyPath: m_Size.y
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 1478869186611798068, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
-      propertyPath: m_Center.y
-      value: 0.025
-      objectReference: {fileID: 0}
     - target: {fileID: 1768113704562581666, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
       propertyPath: Magazine
       value: 
@@ -3211,6 +3199,14 @@ PrefabInstance:
       propertyPath: recoilBody
       value: 
       objectReference: {fileID: 1632292335}
+    - target: {fileID: 1613788347390316852, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+      propertyPath: LeftHandTrig
+      value: 
+      objectReference: {fileID: 530007698}
+    - target: {fileID: 1613788347390316852, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+      propertyPath: RightHandTrig
+      value: 
+      objectReference: {fileID: 530007697}
     - target: {fileID: 5483491199656476082, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
       propertyPath: m_InteractionManager
       value: 
