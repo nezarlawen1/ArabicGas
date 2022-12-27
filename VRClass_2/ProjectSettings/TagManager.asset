@@ -8,6 +8,7 @@ TagManager:
   - Damager
   - Mag1911
   - MagAK47
+  - Slider1911
   layers:
   - Default
   - TransparentFX
