@@ -9,19 +9,29 @@ using Random = UnityEngine.Random;
 
 public class Gun : MonoBehaviour
 {
+    [Header("GameObjects References")]
     [SerializeField] GameObject bulletPrefab, shootPoint;
-    [SerializeField] AudioSource _gunSound;
     [SerializeField] Magazine Magazine;
-    [SerializeField] XRSocketInteractorTag interactor;
-    [SerializeField] GameObject Slider;
-    [SerializeField] Rigidbody recoilBody;
+
+    [Header("Sounds")]
+    [SerializeField] AudioSource _gunSound;
+
+    [Header("Variables")]
     [SerializeField] float Force;
     public float bulletSpeed;
     public bool isMagIn = false;
+    public bool CockedGun = false;
+    public bool ControllerTriggerPushed = false;
 
+    [Space(5)]
     private Rigidbody _rb;
+    [SerializeField] Rigidbody recoilBody;
+    [SerializeField] XRSocketInteractorTag interactor;
     private XRGrabInteractable _interactableGun;
-    private bool CockedGun = false;
+
+    [Header("Hands References")]
+    [SerializeField] HandsTriggerCheck RightHandTrig;
+    [SerializeField] HandsTriggerCheck LeftHandTrig;
 
     private void Awake()
     {
@@ -32,7 +42,7 @@ public class Gun : MonoBehaviour
     }
     private void Update()
     {
-        if (Slider.transform.localPosition.y >= 1 && Slider.transform.localPosition.y <= 1.2)
+        if ((RightHandTrig.SliderTriggered || LeftHandTrig.SliderTriggered) && ControllerTriggerPushed)
         {
             CockedGun = true;
         }
@@ -42,6 +52,10 @@ public class Gun : MonoBehaviour
     public void isMagazineIn(bool state)
     {
         isMagIn = state;
+    }
+    public void IsControllerTriggerPushed(bool state)
+    {
+        ControllerTriggerPushed = state;
     }
     public void SetMagazine()
     {
