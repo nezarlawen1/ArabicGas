@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class HandsTriggerCheck : MonoBehaviour
 {
-    public bool Slider1911Triggered = false;
+    public bool SliderTriggered = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Slider1911"))
         {
-            Slider1911Triggered = true;
+            SliderTriggered = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Slider1911"))
         {
-            Slider1911Triggered = false;
+            SliderTriggered = false;
         }
     }
 }

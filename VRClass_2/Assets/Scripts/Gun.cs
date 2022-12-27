@@ -41,7 +41,7 @@ public class Gun : MonoBehaviour
     }
     private void Update()
     {
-        if (RightHandTrig.Slider1911Triggered || LeftHandTrig.Slider1911Triggered)
+        if (RightHandTrig.SliderTriggered || LeftHandTrig.SliderTriggered)
         {
             CockedGun = true;
         }
