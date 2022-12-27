@@ -203,7 +203,7 @@ public class EnemyAI : MonoBehaviour
 
     virtual public void AnimationHandler()
     {
-        if (AnimatorRef != null) AnimatorRef.SetFloat("Speed", Agent.velocity.magnitude);
+        
     }
 
     // Registering To Player Indicator
