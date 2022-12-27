@@ -21,6 +21,7 @@ public class Gun : MonoBehaviour
     public float bulletSpeed;
     public bool isMagIn = false;
     public bool CockedGun = false;
+    public bool ControllerTriggerPushed = false;
 
     [Space(5)]
     private Rigidbody _rb;
@@ -41,7 +42,7 @@ public class Gun : MonoBehaviour
     }
     private void Update()
     {
-        if (RightHandTrig.SliderTriggered || LeftHandTrig.SliderTriggered)
+        if ((RightHandTrig.SliderTriggered || LeftHandTrig.SliderTriggered) && ControllerTriggerPushed)
         {
             CockedGun = true;
         }
@@ -51,6 +52,10 @@ public class Gun : MonoBehaviour
     public void isMagazineIn(bool state)
     {
         isMagIn = state;
+    }
+    public void IsControllerTriggerPushed(bool state)
+    {
+        ControllerTriggerPushed = state;
     }
     public void SetMagazine()
     {
