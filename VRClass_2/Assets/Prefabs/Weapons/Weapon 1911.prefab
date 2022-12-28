@@ -668,7 +668,7 @@ MonoBehaviour:
   Magazine: {fileID: 0}
   _gunSound: {fileID: 1768113704562581665}
   Force: 2
-  bulletSpeed: 500
+  bulletSpeed: 1000
   isMagIn: 0
   CockedGun: 0
   ControllerTriggerPushed: 0
@@ -686,7 +686,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3902970c3ee2f0941869cbacec950906, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3bb26fe77dc569841ae0f47fe4984750, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
