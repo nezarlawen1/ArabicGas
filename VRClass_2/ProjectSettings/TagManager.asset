@@ -9,6 +9,7 @@ TagManager:
   - Mag1911
   - MagAK47
   - Slider1911
+  - SliderAK47
   layers:
   - Default
   - TransparentFX

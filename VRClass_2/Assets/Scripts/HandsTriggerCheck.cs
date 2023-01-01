@@ -12,10 +12,18 @@ public class HandsTriggerCheck : MonoBehaviour
         {
             SliderTriggered = true;
         }
+        if (other.CompareTag("SliderAK47"))
+        {
+            SliderTriggered = true;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Slider1911"))
+        {
+            SliderTriggered = false;
+        }
+        if (other.CompareTag("SliderAK47"))
         {
             SliderTriggered = false;
         }
