@@ -202,9 +202,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1.5
+  m_Height: 1.8
   m_Direction: 1
-  m_Center: {x: 0, y: -0.25, z: 0}
+  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!114 &1312678591217591460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,7 +278,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1.5
+  m_Height: 1.8
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -345,15 +345,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1546187524409970471, guid: 93751ed452e7ff743b06498b2eda671d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 1546187524409970471, guid: 93751ed452e7ff743b06498b2eda671d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 1546187524409970471, guid: 93751ed452e7ff743b06498b2eda671d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.75
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 1546187524409970471, guid: 93751ed452e7ff743b06498b2eda671d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -361,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1546187524409970471, guid: 93751ed452e7ff743b06498b2eda671d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -1.05
       objectReference: {fileID: 0}
     - target: {fileID: 1546187524409970471, guid: 93751ed452e7ff743b06498b2eda671d, type: 3}
       propertyPath: m_LocalPosition.z
