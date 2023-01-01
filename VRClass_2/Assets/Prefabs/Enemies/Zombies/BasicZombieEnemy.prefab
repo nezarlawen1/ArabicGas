@@ -455,6 +455,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar_WorldCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7223486762965681638, guid: 4ca2f612ba54a6f4891c29f647ab961d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8841949496040485778, guid: 4ca2f612ba54a6f4891c29f647ab961d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
