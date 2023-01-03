@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/UI/BloodScreenPanel.prefab.meta
 guid: bf2f7cef84a8be34182c38d2efc21f97
+========
+guid: 592925a00b0b4244e83257bf6628d04e
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Player/Player XR Origin.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

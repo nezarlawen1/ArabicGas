@@ -667,6 +667,9 @@ MonoBehaviour:
   shootPoint: {fileID: 7969528834166929524}
   Magazine: {fileID: 0}
   _gunSound: {fileID: 1768113704562581665}
+  _gunFire: {fileID: 8300000, guid: dbc6f80583be5a8438fc559768b20a89, type: 3}
+  _magazineLoad: {fileID: 8300000, guid: 9ac2d11d339a4d24da5b6c4c9a9e442f, type: 3}
+  _cockSound: {fileID: 8300000, guid: 9f6c5201bd245604da6d659614e1a195, type: 3}
   Force: 2
   bulletSpeed: 1000
   isMagIn: 0

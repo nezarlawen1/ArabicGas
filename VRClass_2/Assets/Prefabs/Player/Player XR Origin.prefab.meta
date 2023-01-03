@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/UI/DamageIndicator.prefab.meta
+guid: 3fa807e1b333277448585032ba5e138d
+========
 guid: 592925a00b0b4244e83257bf6628d04e
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Player/Player XR Origin.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
