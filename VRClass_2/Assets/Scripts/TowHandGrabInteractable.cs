@@ -37,6 +37,7 @@ public class TowHandGrabInteractable : XRGrabInteractable
         {
             //compute the rotation
             selectingInteractor.attachTransform.rotation = GetTwoHandRotation();
+            
         }
         base.ProcessInteractable(updatePhase);
     }
