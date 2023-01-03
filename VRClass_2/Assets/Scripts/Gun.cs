@@ -48,11 +48,14 @@ public class Gun : MonoBehaviour
         if ((RightHandTrig.SliderTriggered || LeftHandTrig.SliderTriggered) && ControllerTriggerPushed)
         {
             CockedGun = true;
+
             
         }
+
         if (!isMagIn)
             CockedGun = false;
     }
+    
     public void isMagazineIn(bool state)
     {
         _gunSound.PlayOneShot(_magazineLoad, 1);
