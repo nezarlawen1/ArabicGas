@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:VRClass_2/Assets/Prefabs/Enemies/Base/MeleeGroundEnemyDummy.prefab.meta
 guid: 558fb1a138f097c49bfa7f69cd389170
+========
+guid: 592925a00b0b4244e83257bf6628d04e
+>>>>>>>> main:VRClass_2/Assets/Prefabs/Player/Player XR Origin.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

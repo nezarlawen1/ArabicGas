@@ -20,6 +20,9 @@ public class MeleeAttack : MonoBehaviour
 
     [SerializeField] private float _activeDuration = 1;
     private float _timer;
+    [SerializeField] private float _activationDelay = 0.5f;
+    private float _activationDelayTimer;
+
     private bool _isActive;
     private bool _wasActive;
 
@@ -51,30 +54,37 @@ public class MeleeAttack : MonoBehaviour
     {
         if (_isActive)
         {
-            if (_timer >= _activeDuration)
+            if (_activationDelayTimer >= _activationDelay)
             {
-                _isActive = false;
-                _wasActive= true;
-            }
-            else
-            {
-                // While Attacking Is Active
-                if (!_comboTwoWeapons)
+                if (_timer >= _activeDuration)
                 {
-                    _weaponCollider1.enabled = true;
+                    _isActive = false;
+                    _wasActive = true;
                 }
                 else
                 {
-                    if (((int)ComboState) == 1)
+                    // While Attacking Is Active
+                    if (!_comboTwoWeapons)
                     {
                         _weaponCollider1.enabled = true;
                     }
                     else
                     {
-                        _weaponCollider2.enabled = true;
+                        if (((int)ComboState) == 1)
+                        {
+                            _weaponCollider1.enabled = true;
+                        }
+                        else
+                        {
+                            _weaponCollider2.enabled = true;
+                        }
                     }
+                    _timer += Time.deltaTime;
                 }
-                _timer += Time.deltaTime;
+            }
+            else
+            {
+                _activationDelayTimer += Time.deltaTime;
             }
         }
         else
@@ -89,6 +99,7 @@ public class MeleeAttack : MonoBehaviour
 
             // Reset Attack Values
             _timer = 0;
+            _activationDelayTimer = 0;
             _weaponCollider1.enabled = false;
             if (_weaponCollider2 != null) _weaponCollider2.enabled = false;
         }
