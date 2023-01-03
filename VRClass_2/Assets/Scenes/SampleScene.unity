@@ -3170,40 +3170,6 @@ PrefabInstance:
       objectReference: {fileID: 582495234}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
---- !u!1 &6520110287123410049 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1613788347390316849, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
-  m_PrefabInstance: {fileID: 6520110287123410048}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6520110287123410050 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2016404651, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
-  m_PrefabInstance: {fileID: 6520110287123410048}
-  m_PrefabAsset: {fileID: 0}
---- !u!895512359 &6520110287123410051
-AimConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6520110287123410049}
-  m_Enabled: 1
-  m_Weight: 1
-  m_RotationAtRest: {x: -0, y: 0, z: 90}
-  m_RotationOffset: {x: 23.841208, y: 4.1039534, z: 91.66122}
-  m_AimVector: {x: 0, y: 0, z: 1}
-  m_UpVector: {x: 0, y: 1, z: 0}
-  m_WorldUpVector: {x: 0, y: 1, z: 0}
-  m_WorldUpObject: {fileID: 0}
-  m_UpType: 0
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_IsContraintActive: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 6520110287123410050}
-    weight: 1
 --- !u!1 &6520110287123410052 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2016404650, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
@@ -3224,7 +3190,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6520110287123410052}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
