@@ -21,8 +21,10 @@ public class TowHandGrabInteractable : XRGrabInteractable
     {
         foreach (var point in SecondHandGrabPoints)
         {
-            point.onSelectEnter.AddListener(OnSecondHandGrab);
-            point.onSelectEnter.AddListener(OnSecondHandRelease);
+            point.onSelectEntered.AddListener(OnSecondHandGrab);
+            point.onSelectEntered.AddListener(OnSecondHandRelease);
+            //point.selectEntered.AddListener(OnSecondHandGrab);
+            
         }
     }
 
@@ -66,6 +68,10 @@ public class TowHandGrabInteractable : XRGrabInteractable
         //Debug.Log("Second Hand Grab");
         secondInteractor = interactor;
     }
+    public void OnSecondHandGrab(SelectEnterEventArgs args)
+    {
+
+    }
     public void OnSecondHandRelease(XRBaseInteractor interactor)
     {
         //Debug.Log("Second Hand Release");
@@ -75,18 +81,49 @@ public class TowHandGrabInteractable : XRGrabInteractable
     {
         //Debug.Log("First Grab Enter");
         base.OnSelectEntered(interactor);
-        attachInitialRotation = interactor.attachTransform.localRotation;
+        if (HasMultipleInteractors())
+            attachInitialRotation = interactor.attachTransform.localRotation;
+    }
+    protected override void OnSelectEntered(SelectEnterEventArgs args)
+    {
+        base.OnSelectEntered(args);
+
+        if (HasMultipleInteractors())
+        {
+
+        }
+    }
+    protected override void OnSelectExited(SelectExitEventArgs args)
+    {
+        base.OnSelectExited(args);
+
+        if (HasNoInterActors())
+        {
+
+        }
     }
     protected override void OnSelectExited(XRBaseInteractor interactor)
     {
         //Debug.Log("First Grab Exit");
         base.OnSelectExited(interactor);
-        secondInteractor = null;
-        interactor.attachTransform.localRotation = attachInitialRotation;
+        if (HasNoInterActors())
+        {
+            secondInteractor = null;
+            interactor.attachTransform.localRotation = attachInitialRotation;
+        }
     }
     public override bool IsSelectableBy(XRBaseInteractor interactor)
     {
         bool isAlreadyGrabbed = selectingInteractor && !interactor.Equals(selectingInteractor);
         return base.IsSelectableBy(interactor) && !isAlreadyGrabbed;
+    }
+
+    private bool HasMultipleInteractors()
+    {
+        return interactorsSelecting.Count > 1;
+    }
+    private bool HasNoInterActors()
+    {
+        return interactorsSelecting.Count == 0;
     }
 }
