@@ -15,6 +15,9 @@ public class Gun : MonoBehaviour
 
     [Header("Sounds")]
     [SerializeField] AudioSource _gunSound;
+    [SerializeField] AudioClip _gunFire;
+    [SerializeField] AudioClip _magazineLoad;
+    [SerializeField] AudioClip _cockSound;
 
     [Header("Variables")]
     [SerializeField] float Force;
@@ -45,12 +48,14 @@ public class Gun : MonoBehaviour
         if ((RightHandTrig.SliderTriggered || LeftHandTrig.SliderTriggered) && ControllerTriggerPushed)
         {
             CockedGun = true;
+            
         }
         if (!isMagIn)
             CockedGun = false;
     }
     public void isMagazineIn(bool state)
     {
+        _gunSound.PlayOneShot(_magazineLoad, 1);
         isMagIn = state;
     }
     public void IsControllerTriggerPushed(bool state)
@@ -82,7 +87,7 @@ public class Gun : MonoBehaviour
             recoilBody.AddForce(-shootPoint.transform.forward * Force, ForceMode.Impulse);
             recoilBody.transform.localRotation = Quaternion.AngleAxis(-10 * Force,Vector3.right);
             _gunSound.pitch = Random.Range(0.9f, 1.2f);
-            _gunSound.Play();
+            _gunSound.PlayOneShot(_gunFire, 1);
         }
     }
     private void OnDrawGizmos()

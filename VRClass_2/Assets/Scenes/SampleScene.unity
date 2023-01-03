@@ -3196,6 +3196,10 @@ PrefabInstance:
       value: Weapon AK-47
       objectReference: {fileID: 0}
     - target: {fileID: 1613788347390316852, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+      propertyPath: _gunFire
+      value: 
+      objectReference: {fileID: 8300000, guid: 334dff0e66b32b949877f1f97795b147, type: 3}
+    - target: {fileID: 1613788347390316852, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
       propertyPath: recoilBody
       value: 
       objectReference: {fileID: 1632292335}
@@ -3207,6 +3211,14 @@ PrefabInstance:
       propertyPath: RightHandTrig
       value: 
       objectReference: {fileID: 530007697}
+    - target: {fileID: 1613788347390316852, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+      propertyPath: _magazineLoad
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ac2d11d339a4d24da5b6c4c9a9e442f, type: 3}
+    - target: {fileID: 5483491199656476082, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5483491199656476082, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
       propertyPath: m_InteractionManager
       value: 
