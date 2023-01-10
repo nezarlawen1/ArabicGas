@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 4072916931276472124}
   - component: {fileID: 8610769597303062517}
   - component: {fileID: -6658464972706243684}
+  - component: {fileID: -6750249274725721300}
   m_Layer: 0
   m_Name: RayBeam
-  m_TagString: Untagged
+  m_TagString: Damager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,3 +253,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 4
+--- !u!114 &-6750249274725721300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2421014608052477385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416fc2038a606d6449a7ea2db33a81d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _usedBy: {fileID: 0}
+  _canAffect: 0
+  _damagerType: 0
+  _damageAmount: 25

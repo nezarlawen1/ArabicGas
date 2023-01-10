@@ -123,8 +123,11 @@ public class HealthHandler : MonoBehaviour
         {
             if (gameObject.tag == "Player")
             {
-                other.gameObject.GetComponent<Damager>().UsedBy.TryGetComponent<EnemyAI>(out EnemyAI enemyai);
-                if (enemyai != null) enemyai.HitSuccess = true;
+                if (other.gameObject.GetComponent<Damager>().UsedBy != null)
+                {
+                    other.gameObject.GetComponent<Damager>().UsedBy.TryGetComponent(out EnemyAI enemyai);
+                    if (enemyai != null) enemyai.HitSuccess = true;
+                }
             }
             TakeDamage(other.gameObject);
         }
