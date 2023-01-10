@@ -3210,6 +3210,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicZombieEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8159884901305727473, guid: a0cc0b20a03f7a04995590e477f6cc9c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8159884901305727485, guid: a0cc0b20a03f7a04995590e477f6cc9c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3550,6 +3554,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
+      propertyPath: m_Anchor.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
+      propertyPath: m_Anchor.y
+      value: 0.0035
+      objectReference: {fileID: 0}
+    - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
+      propertyPath: m_Anchor.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
+      propertyPath: m_TargetPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
+      propertyPath: m_LinearLimit.limit
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 1776199833161792009, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
       propertyPath: m_RootOrder
       value: 18
