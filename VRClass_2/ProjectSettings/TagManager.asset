@@ -10,6 +10,8 @@ TagManager:
   - MagAK47
   - Slider1911
   - SliderAK47
+  - MagShotGun
+  - SliderShotGun
   layers:
   - Default
   - TransparentFX
