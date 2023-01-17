@@ -8080,12 +8080,40 @@ PrefabInstance:
       value: -0.022399992
       objectReference: {fileID: 0}
     - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
+      propertyPath: m_Axis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
+      propertyPath: m_Axis.y
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
+      propertyPath: m_Axis.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
       propertyPath: m_YMotion
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
+      propertyPath: m_Anchor.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
       propertyPath: m_Anchor.y
-      value: 0.0015
+      value: 0.0025
+      objectReference: {fileID: 0}
+    - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
+      propertyPath: m_Anchor.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
+      propertyPath: m_SecondaryAxis.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
+      propertyPath: m_SecondaryAxis.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -8097,7 +8125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: 0.0015
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
       propertyPath: m_LinearLimit.limit
@@ -8487,6 +8515,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1478869186611798065, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
+      propertyPath: m_Axis.z
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1478869186611798066, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
       propertyPath: m_InteractionManager
       value: 
