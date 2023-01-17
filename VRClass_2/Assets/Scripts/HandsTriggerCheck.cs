@@ -16,6 +16,10 @@ public class HandsTriggerCheck : MonoBehaviour
         {
             SliderTriggered = true;
         }
+        if (other.CompareTag("SliderShotGun"))
+        {
+            SliderTriggered = true;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -24,6 +28,10 @@ public class HandsTriggerCheck : MonoBehaviour
             SliderTriggered = false;
         }
         if (other.CompareTag("SliderAK47"))
+        {
+            SliderTriggered = false;
+        }
+        if (other.CompareTag("SliderShotGun"))
         {
             SliderTriggered = false;
         }
