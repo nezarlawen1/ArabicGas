@@ -8085,7 +8085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
       propertyPath: m_Axis.y
-      value: -20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 877660969714563208, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
       propertyPath: m_Axis.z
