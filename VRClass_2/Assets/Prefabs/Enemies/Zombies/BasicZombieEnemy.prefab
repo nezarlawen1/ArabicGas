@@ -201,10 +201,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.8
+  m_Radius: 0.25
+  m_Height: 1.4
   m_Direction: 1
-  m_Center: {x: 0, y: -0.1, z: 0}
+  m_Center: {x: 0, y: -0.3, z: 0}
 --- !u!114 &1312678591217591460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,10 +221,15 @@ MonoBehaviour:
   _bloodScreen: {fileID: 0}
   _maxHP: 100
   _currentHP: 0
+  _player: 0
   _canRegen: 0
   _regenAmount: 0
   _regenRate: 0
   _regenDelay: 0
+  _hitScore: 10
+  _deathScore: 100
+  _hpColliders:
+  - {fileID: 972774968349068618}
 --- !u!1 &8159884901305727473
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,6 +404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warzombie F Pedroso@T-Pose
       objectReference: {fileID: 0}
+    - target: {fileID: 8482751715436325800, guid: 93751ed452e7ff743b06498b2eda671d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93751ed452e7ff743b06498b2eda671d, type: 3}
 --- !u!1 &811944164750593138 stripped
@@ -414,6 +423,11 @@ Transform:
 --- !u!4 &6753596156846449888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5243303729897618703, guid: 93751ed452e7ff743b06498b2eda671d, type: 3}
+  m_PrefabInstance: {fileID: 1547658386940729839}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6972322810566505031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8482751715436325800, guid: 93751ed452e7ff743b06498b2eda671d, type: 3}
   m_PrefabInstance: {fileID: 1547658386940729839}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2175344112202403563 stripped
@@ -440,6 +454,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!135 &4447015883011357717
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972322810566505031}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0.05, z: 0.02}
+--- !u!114 &972774968349068618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972322810566505031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf95e64c70dcd146856eeb2b8c4f618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageMultiplier: 2
+  DamagerObjRef: {fileID: 0}
 --- !u!1001 &4668915384702157036
 PrefabInstance:
   m_ObjectHideFlags: 0
