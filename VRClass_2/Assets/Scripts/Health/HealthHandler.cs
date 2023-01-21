@@ -9,12 +9,14 @@ public class HealthHandler : MonoBehaviour
     public event EventHandler OnDeathOccured;
 
     public HealthSystem _healthSystem;
+    private PointMediator _pointMediator;
 
     [Header("Basic")]
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private BloodScreen _bloodScreen;
     [SerializeField] private int _maxHP;
     [SerializeField] private int _currentHP;
+    [SerializeField] private bool _player;
 
     [Header("Regen")]
     [SerializeField] private bool _canRegen;
@@ -25,6 +27,10 @@ public class HealthHandler : MonoBehaviour
     private float _regenRateTimer;
     private bool _isRegenerating;
 
+    [Header("Points")]
+    [SerializeField] private int _hitScore = 10;
+    [SerializeField] private int _deathScore = 100;
+
 
     private void Awake()
     {
@@ -33,6 +39,11 @@ public class HealthHandler : MonoBehaviour
         if (_bloodScreen != null) _bloodScreen.Setup(_healthSystem);
         _healthSystem.OnDeath += _healthSystem_OnDeath;
         _healthSystem.OnDamaged += _healthSystem_OnDamaged;
+
+        if (!_player)
+        {
+            _pointMediator = FindObjectOfType<PointMediator>();
+        }
     }
 
     // Update is called once per frame
@@ -51,6 +62,11 @@ public class HealthHandler : MonoBehaviour
     private void _healthSystem_OnDeath(object sender, EventArgs e)
     {
         if (OnDeathOccured != null) OnDeathOccured(this, EventArgs.Empty);
+
+        if (!_player)
+        {
+            _pointMediator.AddPoints(_deathScore);
+        }
     }
 
     public void HealthRegen()
@@ -110,6 +126,11 @@ public class HealthHandler : MonoBehaviour
             else if (tempDamager.DamagerType == DamagerType.InstaDeath)
             {
                 _healthSystem.Damage(_maxHP);
+            }
+
+            if (!_player)
+            {
+                _pointMediator.AddPoints(_hitScore);
             }
         }
     }
