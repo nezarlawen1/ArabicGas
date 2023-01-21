@@ -31,6 +31,9 @@ public class HealthHandler : MonoBehaviour
     [SerializeField] private int _hitScore = 10;
     [SerializeField] private int _deathScore = 100;
 
+    [Header("Colliders")]
+    [SerializeField] private List<HealthCollider> _hpColliders;
+
 
     private void Awake()
     {
@@ -39,6 +42,7 @@ public class HealthHandler : MonoBehaviour
         if (_bloodScreen != null) _bloodScreen.Setup(_healthSystem);
         _healthSystem.OnDeath += _healthSystem_OnDeath;
         _healthSystem.OnDamaged += _healthSystem_OnDamaged;
+        HPCollidersSetup();
 
         if (!_player)
         {
@@ -104,7 +108,7 @@ public class HealthHandler : MonoBehaviour
         _regenRateTimer = 0;
     }
 
-    private void TakeDamage(GameObject damagerObj)
+    private void TakeDamage(GameObject damagerObj, float damageMulti)
     {
         // Get Damage Info from Damager GameObject
         Damager tempDamager = damagerObj.GetComponent<Damager>();
@@ -115,7 +119,7 @@ public class HealthHandler : MonoBehaviour
             // If Damager is One Hit
             if (tempDamager.DamagerType == DamagerType.OneHit)
             {
-                _healthSystem.Damage(tempDamager.DamageAmount);
+                _healthSystem.Damage((int)(tempDamager.DamageAmount * damageMulti));
             }
             // If Damager is Over Time
             else if (tempDamager.DamagerType == DamagerType.OverTime)
@@ -135,6 +139,30 @@ public class HealthHandler : MonoBehaviour
         }
     }
 
+    private void HPCollidersSetup()
+    {
+        if (_hpColliders.Count > 0)
+        {
+            foreach (var collider in _hpColliders)
+            {
+                collider.OnHit += Collider_OnHit;
+            }
+        }
+    }
+
+    private void Collider_OnHit(HealthCollider hCol)
+    {
+        if (gameObject.tag == "Player")
+        {
+            if (hCol.DamagerObjRef.GetComponent<Damager>().UsedBy != null)
+            {
+                hCol.DamagerObjRef.GetComponent<Damager>().UsedBy.TryGetComponent(out EnemyAI enemyai);
+                if (enemyai != null) enemyai.HitSuccess = true;
+            }
+        }
+        TakeDamage(hCol.DamagerObjRef, hCol.DamageMultiplier);
+    }
+
 
     // Collision Handling
     // --------------------
@@ -150,7 +178,7 @@ public class HealthHandler : MonoBehaviour
                     if (enemyai != null) enemyai.HitSuccess = true;
                 }
             }
-            TakeDamage(other.gameObject);
+            TakeDamage(other.gameObject, 1);
         }
     }
 }
