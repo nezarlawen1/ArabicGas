@@ -10,6 +10,7 @@ public class MysteryBox : MonoBehaviour
     [SerializeField] private int _price = 950;
     [SerializeField] private List<GameObject> _itemsList = new List<GameObject>();
     private GameObject _itemOutcome;
+    private bool _activated;
 
 
     private void Awake()
@@ -20,26 +21,38 @@ public class MysteryBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void RollBox()
     {
-        if (_playerPoints.DecreasePoints(_price))
+        if (_playerPoints.DecreasePoints(_price) && !_activated)
         {
+            _activated = true;
+
             int itemIndex = Random.Range(0, _itemsList.Count);
             _itemOutcome = _itemsList[itemIndex];
+
+            InstantiateItem();
         }
     }
 
     private void InstantiateItem()
     {
-        GameObject savedItem = Instantiate(_itemOutcome,_spawnLocation,_spawnLocation);
+        GameObject savedItem = Instantiate(_itemOutcome, _spawnLocation, _spawnLocation);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            RollBox();
+        }
     }
 }
