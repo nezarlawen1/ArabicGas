@@ -12,6 +12,7 @@ TagManager:
   - SliderAK47
   - MagShotGun
   - SliderShotGun
+  - PointMediator
   layers:
   - Default
   - TransparentFX
