@@ -21,7 +21,7 @@ public class MysteryBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        RollBox();
     }
 
     // Update is called once per frame
@@ -45,7 +45,8 @@ public class MysteryBox : MonoBehaviour
 
     private void InstantiateItem()
     {
-        GameObject savedItem = Instantiate(_itemOutcome, _spawnLocation, _spawnLocation);
+        GameObject savedItem = Instantiate(_itemOutcome, _spawnLocation.position, Quaternion.identity);
+        savedItem.transform.SetParent(_spawnLocation);
     }
 
     private void OnTriggerEnter(Collider other)
