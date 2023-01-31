@@ -15,13 +15,13 @@ public class MysteryBox : MonoBehaviour
 
     private void Awake()
     {
-        _playerPoints = FindObjectOfType<PointsSystem>();
+        //_playerPoints = FindObjectOfType<PointsSystem>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        RollBox();
+        //RollBox();
     }
 
     // Update is called once per frame
@@ -46,13 +46,23 @@ public class MysteryBox : MonoBehaviour
     private void InstantiateItem()
     {
         GameObject savedItem = Instantiate(_itemOutcome, _spawnLocation.position, Quaternion.identity);
-        savedItem.transform.SetParent(_spawnLocation);
+        savedItem.transform.SetParent(null);
+        if (savedItem.TryGetComponent(out Gun gun))
+        {
+            gun.CreateMag();
+        }
+        else if (savedItem.TryGetComponent(out GunNoMag nomag))
+        {
+            nomag.CreateMag();
+        }
+        _activated = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            _playerPoints = other.GetComponent<PointsSystem>();
             RollBox();
         }
     }
