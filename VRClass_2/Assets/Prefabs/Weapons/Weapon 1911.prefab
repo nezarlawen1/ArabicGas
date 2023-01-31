@@ -665,6 +665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4687778149965266790, guid: 7592da0afe90c214a91d43eb73f7d52d, type: 3}
   shootPoint: {fileID: 7969528834166929524}
+  _magPrefab: {fileID: 8803289577225282968, guid: 2493c4add3434704c95b8b42bd3fc702, type: 3}
   Magazine: {fileID: 0}
   _gunSound: {fileID: 1768113704562581665}
   _gunFire: {fileID: 8300000, guid: dbc6f80583be5a8438fc559768b20a89, type: 3}
