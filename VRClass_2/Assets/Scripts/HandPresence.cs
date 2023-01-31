@@ -46,6 +46,7 @@ public class HandPresence : MonoBehaviour
             }
 
             spawnedHandModel = Instantiate(handModelPrefab, transform);
+            handModelPrefab.SetActive(true);
             handAnimator = spawnedHandModel.GetComponent<Animator>();
         }
     }
