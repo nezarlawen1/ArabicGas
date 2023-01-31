@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 public class Gun : MonoBehaviour
 {
     [Header("GameObjects References")]
-    [SerializeField] GameObject bulletPrefab, shootPoint;
+    [SerializeField] GameObject bulletPrefab, shootPoint, _magPrefab;
     [SerializeField] Magazine Magazine;
 
     [Header("Sounds")]
@@ -76,6 +76,11 @@ public class Gun : MonoBehaviour
     {
         Magazine = interactor.selectTarget.gameObject.GetComponent<Magazine>();
     }
+    public void CreateMag()
+    {
+        Instantiate(_magPrefab,transform.position,Quaternion.identity,null);
+    }
+
     private void SetupInteractableEvents()
     {
         _interactableGun.activated.AddListener(StartShooting);

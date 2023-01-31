@@ -47,6 +47,14 @@ public class MysteryBox : MonoBehaviour
     {
         GameObject savedItem = Instantiate(_itemOutcome, _spawnLocation.position, Quaternion.identity);
         savedItem.transform.SetParent(null);
+        if (savedItem.TryGetComponent(out Gun gun))
+        {
+            gun.CreateMag();
+        }
+        else if (savedItem.TryGetComponent(out GunNoMag nomag))
+        {
+            nomag.CreateMag();
+        }
         _activated = false;
     }
 
