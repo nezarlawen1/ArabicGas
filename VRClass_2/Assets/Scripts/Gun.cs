@@ -42,20 +42,27 @@ public class Gun : MonoBehaviour
         _interactableGun = GetComponent<XRGrabInteractable>();
         //Magazine = interactor.selectTarget.gameObject.GetComponent<Magazine>();
         SetupInteractableEvents();
+
+        //RightHandTrig = GameObject.Find("RightHand Controller").GetComponent<HandsTriggerCheck>();
+        //LeftHandTrig = GameObject.Find("LeftHand Controller").GetComponent<HandsTriggerCheck>();
+        //recoilBody = RightHandTrig.GetComponentInChildren<Rigidbody>();
     }
     private void Update()
     {
-        if ((RightHandTrig.SliderTriggered || LeftHandTrig.SliderTriggered) && ControllerTriggerPushed)
+        if (RightHandTrig != null)
         {
-            CockedGun = true;
+            if ((RightHandTrig.SliderTriggered || LeftHandTrig.SliderTriggered) && ControllerTriggerPushed)
+            {
+                CockedGun = true;
 
-            
+
+            }
         }
 
         if (!isMagIn)
             CockedGun = false;
     }
-    
+
     public void isMagazineIn(bool state)
     {
         _gunSound.PlayOneShot(_magazineLoad, 1);
@@ -82,17 +89,41 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        if (Magazine.BulletCount >0) 
+        if (Magazine.BulletCount > 0)
         {
             GameObject bullet = Instantiate(bulletPrefab, shootPoint.transform.position, shootPoint.transform.rotation);
             bullet.GetComponent<Rigidbody>().AddForce(shootPoint.transform.forward * bulletSpeed * Time.deltaTime, ForceMode.Impulse);
             Magazine.RemoveBullet();
-            recoilBody.AddForce(-shootPoint.transform.forward * Force, ForceMode.Impulse);
-            recoilBody.transform.localRotation = Quaternion.AngleAxis(-10 * Force,Vector3.right);
+            if (recoilBody != null)
+            {
+                recoilBody.AddForce(-shootPoint.transform.forward * Force, ForceMode.Impulse);
+                recoilBody.transform.localRotation = Quaternion.AngleAxis(-10 * Force, Vector3.right);
+            }
             _gunSound.pitch = Random.Range(0.9f, 1.2f);
             _gunSound.PlayOneShot(_gunFire, 1);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (RightHandTrig == null && other.CompareTag("Player"))
+        {
+            var handTriggers = other.GetComponentsInChildren<HandsTriggerCheck>();
+            foreach (var item in handTriggers)
+            {
+                if (item.gameObject.name == "RightHand Controller")
+                {
+                    RightHandTrig = item;
+                }
+                else
+                {
+                    LeftHandTrig = item;
+                }
+            }
+            recoilBody = RightHandTrig.GetComponentInChildren<Rigidbody>();
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Debug.DrawRay(shootPoint.transform.position, shootPoint.transform.forward, Color.blue);

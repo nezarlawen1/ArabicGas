@@ -294,7 +294,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2113091238581021589, guid: 3fa807e1b333277448585032ba5e138d, type: 3}
       propertyPath: CurrentPoints
-      value: 1000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 7662428227757776044, guid: 3fa807e1b333277448585032ba5e138d, type: 3}
       propertyPath: m_RootOrder

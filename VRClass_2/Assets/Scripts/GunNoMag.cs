@@ -46,14 +46,23 @@ public class GunNoMag : MonoBehaviour
             Pellets.Add(Quaternion.Euler(Vector3.zero));
         }
 
+
+        //RightHandTrig = GameObject.Find("RightHand Controller").GetComponent<HandsTriggerCheck>();
+        //LeftHandTrig = GameObject.Find("LeftHand Controller").GetComponent<HandsTriggerCheck>();
+        //recoilBody = RightHandTrig.GetComponentInChildren<Rigidbody>();
+
+        _interactableGun = GetComponent<XRGrabInteractable>();
         //Magazine = interactor.selectTarget.gameObject.GetComponent<Magazine>();
         SetupInteractableEvents();
     }
     private void Update()
     {
-        if ((RightHandTrig.SliderTriggered || LeftHandTrig.SliderTriggered) && ControllerTriggerPushed)
+        if (RightHandTrig != null)
         {
-            CockedGun = true;
+            if ((RightHandTrig.SliderTriggered || LeftHandTrig.SliderTriggered) && ControllerTriggerPushed)
+            {
+                CockedGun = true;
+            }
         }
 
         if (!isMagIn)
@@ -106,11 +115,35 @@ public class GunNoMag : MonoBehaviour
                 p.transform.rotation = Quaternion.RotateTowards(p.transform.rotation, Pellets[i], SpreadAngle);
                 p.GetComponent<Rigidbody>().AddForce(p.transform.forward * bulletSpeed);
             }
-            recoilBody.AddForce(-shootPoint.transform.forward * Force, ForceMode.Impulse);
-            recoilBody.transform.localRotation = Quaternion.AngleAxis(-10 * Force, Vector3.right);
+            if (recoilBody != null)
+            {
+                recoilBody.AddForce(-shootPoint.transform.forward * Force, ForceMode.Impulse);
+                recoilBody.transform.localRotation = Quaternion.AngleAxis(-10 * Force, Vector3.right);
+            }
             Magazine.RemoveBullet();
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (RightHandTrig == null && other.CompareTag("Player"))
+        {
+            var handTriggers = other.GetComponentsInChildren<HandsTriggerCheck>();
+            foreach (var item in handTriggers)
+            {
+                if (item.gameObject.name == "RightHand Controller")
+                {
+                    RightHandTrig = item;
+                }
+                else
+                {
+                    LeftHandTrig = item;
+                }
+            }
+            recoilBody = RightHandTrig.GetComponentInChildren<Rigidbody>();
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Debug.DrawRay(shootPoint.transform.position, shootPoint.transform.forward, Color.blue);
