@@ -429,7 +429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7662428227757776044, guid: 3fa807e1b333277448585032ba5e138d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.548
+      value: 0.14
       objectReference: {fileID: 0}
     - target: {fileID: 7662428227757776044, guid: 3fa807e1b333277448585032ba5e138d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -437,7 +437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7662428227757776044, guid: 3fa807e1b333277448585032ba5e138d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.327
+      value: -0.52
       objectReference: {fileID: 0}
     - target: {fileID: 7662428227757776044, guid: 3fa807e1b333277448585032ba5e138d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7810,7 +7810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8159884901305727473, guid: a0cc0b20a03f7a04995590e477f6cc9c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8159884901305727485, guid: a0cc0b20a03f7a04995590e477f6cc9c, type: 3}
       propertyPath: m_RootOrder
@@ -8409,6 +8409,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AK-47 Mag
       objectReference: {fileID: 0}
+    - target: {fileID: 4475510851070388508, guid: e320200ccc234d84a9de067ae4a5c0d4, type: 3}
+      propertyPath: m_StartingSelectFilters.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4475510851070388510, guid: e320200ccc234d84a9de067ae4a5c0d4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -8530,6 +8534,14 @@ PrefabInstance:
     - target: {fileID: 1768113704562581671, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
       propertyPath: m_Name
       value: Weapon 1911
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450161947020740677, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
+      propertyPath: targetTag.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450161947020740677, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
+      propertyPath: targetTag.Array.data[0]
+      value: Mag1911
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
@@ -8675,6 +8687,14 @@ PrefabInstance:
       propertyPath: RightHandTrig
       value: 
       objectReference: {fileID: 158414887}
+    - target: {fileID: 6520110286150469764, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+      propertyPath: targetTag.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520110286150469764, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
+      propertyPath: targetTag.Array.data[0]
+      value: MagAK47
+      objectReference: {fileID: 0}
     - target: {fileID: 6520110287123410050, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
       propertyPath: m_InteractionManager
       value: 

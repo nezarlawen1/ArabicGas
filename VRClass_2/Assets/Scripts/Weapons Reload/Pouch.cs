@@ -33,6 +33,7 @@ public class Pouch : MonoBehaviour
     }
     private void SetBulletAmmount()
     {
+        //PistolAmmoNum = LeftHand.GetComponent
         PistolAmmoNum.text = PistolAmmo.ToString();
         ARAmmoNum.text = ARAmmo.ToString();
         ShotgunAmmoNum.text = ShotgunAmmo.ToString();
@@ -40,15 +41,25 @@ public class Pouch : MonoBehaviour
 
     public void IsMagIn()
     {
+        //Debug.Log(Socket.selectTarget.gameObject);
         if (Socket.selectTarget.gameObject.TryGetComponent(out Magazine mag))
         {
+            Debug.Log(Socket.selectTarget.gameObject);
             switch (Socket.selectTarget.gameObject.tag)
             {
-                case "mag1911":
+                case "Mag1911":
                     PistolAmmo += mag.BulletCount;
+                    SetBulletAmmount();
+                    Debug.Log("mag1911");
                     break;
                 case "MagAK47":
+                    Debug.Log("magAK");
                     ARAmmo += mag.BulletCount;
+                    SetBulletAmmount();
+                    break;
+                case "MagShotGun":
+                    ShotgunAmmo++;
+                    SetBulletAmmount();
                     break;
             }
         }
