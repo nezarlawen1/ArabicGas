@@ -5,6 +5,9 @@ using TMPro;
 
 public class WaveSystem : MonoBehaviour
 {
+    public static WaveSystem Instance;
+
+    [SerializeField] private GameObject _player;
     [SerializeField] private TextMeshProUGUI _waveText;
     [SerializeField] private int _waveIndex = 1;
     [SerializeField] private int _startEnemyCount = 6;
@@ -15,6 +18,9 @@ public class WaveSystem : MonoBehaviour
 
     [SerializeField] private EnemySpawner[] enemySpawners = new EnemySpawner[0];
 
+    public GameObject Player { get => _player;}
+
+
     private void OnValidate()
     {
         _totalEnemyCount = _startEnemyCount;
@@ -23,6 +29,17 @@ public class WaveSystem : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        _player = GameObject.FindGameObjectWithTag("Player");
+
         enemySpawners = GetComponentsInChildren<EnemySpawner>();
     }
 
