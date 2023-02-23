@@ -7,7 +7,7 @@ public class MeleeGroundEnemyDummyAI : EnemyAI
     private MeleeAttack _meleeAttackRef;
     private bool _attacking;
 
-    private void Start()
+    private void Awake()
     {
         _meleeAttackRef = GetComponent<MeleeAttack>();
     }

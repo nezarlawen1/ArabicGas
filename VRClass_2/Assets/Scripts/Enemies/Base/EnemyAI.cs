@@ -29,12 +29,13 @@ public class EnemyAI : MonoBehaviour
     // States
     public float SightRange, AttackRange;
     private bool PlayerInSightRange, PlayerInAttackRange;
+    private float _playerDistance;
 
 
-    private void Awake()
+    private void Start()
     {
         Agent = GetComponent<NavMeshAgent>();
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        Player = WaveSystem.Instance.Player.transform;
         EnemyHealthHandler.OnDeathOccured += EnemyHealthHandler_OnDeathOccured;
     }
 
@@ -43,11 +44,16 @@ public class EnemyAI : MonoBehaviour
         RunEnemy();
     }
 
+
     public void RunEnemy()
     {
         //Check for sight and attack range
-        PlayerInSightRange = Physics.CheckSphere(transform.position, SightRange, PlayerLayer);
-        PlayerInAttackRange = Physics.CheckSphere(transform.position, AttackRange, PlayerLayer) && CanSeePlayer();
+        _playerDistance = Vector3.Distance(Player.transform.position, transform.position);
+
+        PlayerInSightRange = CheckRange(SightRange);
+        PlayerInAttackRange = CheckRange(AttackRange);
+        //PlayerInSightRange = Physics.CheckSphere(transform.position, SightRange, PlayerLayer);
+        //PlayerInAttackRange = Physics.CheckSphere(transform.position, AttackRange, PlayerLayer) && CanSeePlayer();
 
         ToggleHPBarState();
 
@@ -61,6 +67,18 @@ public class EnemyAI : MonoBehaviour
         {
             HitSuccess = false;
             Invoke("RegisterIndicator", 0);
+        }
+    }
+
+    private bool CheckRange(float rangeToCheck)
+    {
+        if (_playerDistance <= rangeToCheck)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
