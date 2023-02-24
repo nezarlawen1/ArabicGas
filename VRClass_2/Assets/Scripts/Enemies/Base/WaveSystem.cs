@@ -9,6 +9,7 @@ public class WaveSystem : MonoBehaviour
 
     [SerializeField] private GameObject _player;
     [SerializeField] private TextMeshProUGUI _waveText;
+    [SerializeField] private bool _canSpawn = true;
     [SerializeField] private int _waveIndex = 0;
     [SerializeField] private int _startEnemyCount = 6;
     [SerializeField] private int _totalEnemyCount = 6;
@@ -50,24 +51,30 @@ public class WaveSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (_waveIndex == 0)
+        if (_canSpawn)
         {
-            ResetRounds();
-        }
-        else
-        {
-            InitiateEnemies();
+            if (_waveIndex == 0)
+            {
+                ResetRounds();
+            }
+            else
+            {
+                InitiateEnemies();
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        RefilSpawners();
+        if (_canSpawn)
+        {
+            RefilSpawners();
 
-        RoundEndChecker();
+            RoundEndChecker();
 
-        RefreshText();
+            RefreshText();
+        }
     }
 
     private void RoundEndChecker()
@@ -96,23 +103,26 @@ public class WaveSystem : MonoBehaviour
 
     private void InitiateEnemies()
     {
-        if (enemySpawners.Length != 0)
+        if (_canSpawn)
         {
-            _enemiesLeft = _totalEnemyCount;
-            int enemiesLeft = _totalEnemyCount;
-            int enemiesCap = _enemySpawnCap;
-            while (enemiesLeft != 0)
+            if (enemySpawners.Length != 0)
             {
-                int spawnerIndex = Random.Range(0, enemySpawners.Length);
-
-                enemySpawners[spawnerIndex].SpawnEnemy();
-                enemiesLeft--;
-                enemiesCap--;
-                _enemiesSpawned++;
-
-                if (enemiesCap <= 0)
+                _enemiesLeft = _totalEnemyCount;
+                int enemiesLeft = _totalEnemyCount;
+                int enemiesCap = _enemySpawnCap;
+                while (enemiesLeft != 0)
                 {
-                    break;
+                    int spawnerIndex = Random.Range(0, enemySpawners.Length);
+
+                    enemySpawners[spawnerIndex].SpawnEnemy();
+                    enemiesLeft--;
+                    enemiesCap--;
+                    _enemiesSpawned++;
+
+                    if (enemiesCap <= 0)
+                    {
+                        break;
+                    }
                 }
             }
         }
@@ -165,10 +175,13 @@ public class WaveSystem : MonoBehaviour
 
     private void NextRound()
     {
-        _waveIndex++;
-        _totalEnemyCount = _startEnemyCount;
-        _totalEnemyCount += _enemyAmountIndexer * (_waveIndex - 1);
-        InitiateEnemies();
+        if (_canSpawn)
+        {
+            _waveIndex++;
+            _totalEnemyCount = _startEnemyCount;
+            _totalEnemyCount += _enemyAmountIndexer * (_waveIndex - 1);
+            InitiateEnemies();
+        }
     }
 
     [ContextMenu("Finish Round")]
