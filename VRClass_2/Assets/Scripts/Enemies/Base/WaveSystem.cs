@@ -81,6 +81,10 @@ public class WaveSystem : MonoBehaviour
     {
         if (_enemiesLeft <= 0)
         {
+            if (!_roundOver)
+            {
+                _roundStartDelayTimer = 0;
+            }
             _roundOver = true;
             _enemiesLeft = 0;
             _enemiesSpawned = 0;
@@ -205,5 +209,47 @@ public class WaveSystem : MonoBehaviour
     private void RefreshText()
     {
         _waveText.text = _waveIndex.ToString();
+
+        Color tempCol;
+
+        if (_roundOver)
+        {
+            if ( _roundStartDelayTimer >= 0 && _roundStartDelayTimer < _roundStartDelay / 10)
+            {
+                tempCol = Color.white;
+                tempCol.a = 0.75f;
+                _waveText.color = Color.Lerp(_waveText.color, tempCol, Time.deltaTime * 2);
+            }
+            else if (_roundStartDelayTimer >= _roundStartDelay / 10 && _roundStartDelayTimer < _roundStartDelay / 10 * 2)
+            {
+                tempCol = Color.red;
+                tempCol.a = 0.75f;
+                _waveText.color = Color.Lerp(_waveText.color, tempCol, Time.deltaTime * 2);
+            }
+            else if (_roundStartDelayTimer >= _roundStartDelay / 10 * 2 && _roundStartDelayTimer < _roundStartDelay / 10 * 3)
+            {
+                tempCol = Color.white;
+                tempCol.a = 0.75f;
+                _waveText.color = Color.Lerp(_waveText.color, tempCol, Time.deltaTime * 2);
+            }
+            else if (_roundStartDelayTimer >= _roundStartDelay / 10 * 3 && _roundStartDelayTimer < _roundStartDelay / 10 * 4)
+            {
+                tempCol = Color.red;
+                tempCol.a = 0.75f;
+                _waveText.color = Color.Lerp(_waveText.color, tempCol, Time.deltaTime * 2);
+            }
+            else if (_roundStartDelayTimer >= _roundStartDelay / 10 * 4 && _roundStartDelayTimer < _roundStartDelay)
+            {
+                tempCol = Color.white;
+                tempCol.a = 0.75f;
+                _waveText.color = Color.Lerp(_waveText.color, tempCol, Time.deltaTime * 2);
+            }
+        }
+        else
+        {
+            tempCol = Color.red;
+            tempCol.a = 0.75f;
+            _waveText.color = Color.Lerp(_waveText.color, tempCol, Time.deltaTime * 2);
+        }
     }
 }
