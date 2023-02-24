@@ -9,16 +9,20 @@ public class WaveSystem : MonoBehaviour
 
     [SerializeField] private GameObject _player;
     [SerializeField] private TextMeshProUGUI _waveText;
-    [SerializeField] private int _waveIndex = 1;
+    [SerializeField] private int _waveIndex = 0;
     [SerializeField] private int _startEnemyCount = 6;
     [SerializeField] private int _totalEnemyCount = 6;
-    [SerializeField] private int _spawnAtOnceMax = 2;
+    [SerializeField] private int _enemiesLeft;
+    [SerializeField] private int _enemiesSpawned;
     [SerializeField] private int _enemySpawnCap = 15;
     [SerializeField] private int _enemyAmountIndexer = 4;
+    [SerializeField] private bool _roundOver;
+    [SerializeField] private float _roundStartDelay = 5;
+    private float _roundStartDelayTimer;
 
     [SerializeField] private EnemySpawner[] enemySpawners = new EnemySpawner[0];
 
-    public GameObject Player { get => _player;}
+    public GameObject Player { get => _player; }
 
 
     private void OnValidate()
@@ -46,42 +50,108 @@ public class WaveSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InitiateEnemies();
+        if (_waveIndex == 0)
+        {
+            ResetRounds();
+        }
+        else
+        {
+            InitiateEnemies();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        RefilSpawners();
 
+        RoundEndChecker();
+
+        RefreshText();
+    }
+
+    private void RoundEndChecker()
+    {
+        if (_enemiesLeft <= 0)
+        {
+            _roundOver = true;
+            _enemiesLeft = 0;
+            _enemiesSpawned = 0;
+        }
+
+        if (_roundOver)
+        {
+            if (_roundStartDelayTimer >= _roundStartDelay)
+            {
+                _roundStartDelayTimer = 0;
+                _roundOver = false;
+                NextRound();
+            }
+            else
+            {
+                _roundStartDelayTimer += Time.deltaTime;
+            }
+        }
     }
 
     private void InitiateEnemies()
     {
-
         if (enemySpawners.Length != 0)
         {
+            _enemiesLeft = _totalEnemyCount;
             int enemiesLeft = _totalEnemyCount;
+            int enemiesCap = _enemySpawnCap;
             while (enemiesLeft != 0)
             {
-                for (int i = 0; i < enemySpawners.Length; i++)
+                int spawnerIndex = Random.Range(0, enemySpawners.Length);
+
+                enemySpawners[spawnerIndex].SpawnEnemy();
+                enemiesLeft--;
+                enemiesCap--;
+                _enemiesSpawned++;
+
+                if (enemiesCap <= 0)
                 {
-                    if (enemiesLeft - _spawnAtOnceMax >= 0)
-                    {
-                        enemiesLeft -= _spawnAtOnceMax;
-                        enemySpawners[i].SpawnEnemies(_spawnAtOnceMax);
-                    }
-                    else if (enemiesLeft > 0 && enemiesLeft - _spawnAtOnceMax < 0)
-                    {
-                        enemiesLeft = 0;
-                        enemySpawners[i].SpawnEnemies(Mathf.Abs(enemiesLeft - _spawnAtOnceMax));
-                        return;
-                    }
+                    break;
                 }
             }
-
         }
     }
 
+    private void RefilSpawners()
+    {
+        if (_enemiesSpawned < _enemySpawnCap && _enemiesSpawned < _enemiesLeft)
+        {
+            int spawnerIndex = Random.Range(0, enemySpawners.Length);
+            enemySpawners[spawnerIndex].SpawnEnemy();
+            _enemiesSpawned++;
+        }
+    }
+
+    public void SubtractEnemyCount()
+    {
+        _enemiesLeft--;
+        _enemiesSpawned--;
+    }
+
+    [ContextMenu("Destroy Random Enemy")]
+    private void DestroyRandomEnemy()
+    {
+        bool gotOne = false;
+        foreach (var spawner in enemySpawners)
+        {
+            foreach (var enemy in spawner.SpawnedEnemies)
+            {
+                if (!gotOne)
+                {
+                    Destroy(enemy);
+                    gotOne = true;
+                }
+            }
+        }
+    }
+
+    [ContextMenu("Destroy All Enemies")]
     private void DestroyAllEnemies()
     {
         for (int a = 0; a < enemySpawners.Length; a++)
@@ -90,26 +160,37 @@ public class WaveSystem : MonoBehaviour
             {
                 Destroy(enemyInstance);
             }
-            enemySpawners[a].SpawnedEnemies.Clear();
         }
     }
 
-    [ContextMenu("Next Round")]
     private void NextRound()
     {
-        DestroyAllEnemies();
         _waveIndex++;
         _totalEnemyCount = _startEnemyCount;
         _totalEnemyCount += _enemyAmountIndexer * (_waveIndex - 1);
         InitiateEnemies();
     }
 
+    [ContextMenu("Finish Round")]
+    private void FinishRound()
+    {
+        _enemiesLeft = 0;
+        _enemiesSpawned = 0;
+        DestroyAllEnemies();
+    }
+
     [ContextMenu("Reset Rounds")]
     private void ResetRounds()
     {
+        _enemiesLeft = 0;
+        _enemiesSpawned = 0;
         DestroyAllEnemies();
-        _waveIndex = 1;
+        _waveIndex = 0;
         _totalEnemyCount = _startEnemyCount;
-        InitiateEnemies();
+    }
+
+    private void RefreshText()
+    {
+        _waveText.text = _waveIndex.ToString();
     }
 }
