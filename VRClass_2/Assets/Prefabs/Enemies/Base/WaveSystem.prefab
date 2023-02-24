@@ -44,12 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc529cf76535ee84d8359a80d7658575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
   _waveText: {fileID: 0}
-  _waveIndex: 1
+  _waveIndex: 0
   _startEnemyCount: 6
-  _totalEnemyCount: 6
+  _totalEnemyCount: 2
+  _enemiesLeft: 0
+  _enemiesSpawned: 0
   _enemySpawnCap: 15
   _enemyAmountIndexer: 4
+  _roundOver: 0
+  _roundStartDelay: 5
   enemySpawners: []
 --- !u!1001 &4819805784502100678
 PrefabInstance:
