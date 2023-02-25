@@ -11,8 +11,12 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int _spawnCount;
     [SerializeField] private bool _empty;
 
+    [SerializeField] private bool _canSpawn = true;
+    [SerializeField] private Door _doorToAllowSpawn;
+
     public List<GameObject> SpawnedEnemies { get => _spawnedEnemies; }
     public bool Empty { get => _empty; }
+    public bool CanSpawn { get => _canSpawn; }
 
     private void Awake()
     {
@@ -22,6 +26,8 @@ public class EnemySpawner : MonoBehaviour
     private void Update()
     {
         SpawnerStateCounter();
+
+        SpawnStateFromDoor();
     }
 
     public void SpawnEnemy()
@@ -51,5 +57,37 @@ public class EnemySpawner : MonoBehaviour
         {
             _empty = false;
         }
+    }
+
+    private void SpawnStateFromDoor()
+    {
+        if (!_doorToAllowSpawn)
+        {
+            _canSpawn = true;
+        }
+        else
+        {
+            if (_doorToAllowSpawn.Open)
+            {
+                _canSpawn = true;
+            }
+            else
+            {
+                _canSpawn = false;
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (_canSpawn)
+        {
+            Gizmos.color = Color.yellow;
+        }
+        else
+        {
+            Gizmos.color = Color.red;
+        }
+        Gizmos.DrawWireCube(transform.position + new Vector3(0, 0.5f, 0), new Vector3(1, 1, 1));
     }
 }

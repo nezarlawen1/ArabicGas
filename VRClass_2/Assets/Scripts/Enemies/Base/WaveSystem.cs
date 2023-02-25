@@ -7,17 +7,17 @@ public class WaveSystem : MonoBehaviour
 {
     public static WaveSystem Instance;
 
-    [SerializeField] private GameObject _player;
+    private GameObject _player;
     [SerializeField] private TextMeshProUGUI _waveText;
     [SerializeField] private bool _canSpawn = true;
     [SerializeField] private int _waveIndex = 0;
     [SerializeField] private int _startEnemyCount = 6;
-    [SerializeField] private int _totalEnemyCount = 6;
-    [SerializeField] private int _enemiesLeft;
-    [SerializeField] private int _enemiesSpawned;
+    private int _totalEnemyCount = 6;
+    private int _enemiesLeft;
+    private int _enemiesSpawned;
     [SerializeField] private int _enemySpawnCap = 15;
     [SerializeField] private int _enemyAmountIndexer = 4;
-    [SerializeField] private bool _roundOver;
+    private bool _roundOver;
     [SerializeField] private float _roundStartDelay = 5;
     private float _roundStartDelayTimer;
 
@@ -118,12 +118,31 @@ public class WaveSystem : MonoBehaviour
                 {
                     int spawnerIndex = Random.Range(0, enemySpawners.Length);
 
-                    enemySpawners[spawnerIndex].SpawnEnemy();
-                    enemiesLeft--;
-                    enemiesCap--;
-                    _enemiesSpawned++;
+                    if (enemySpawners[spawnerIndex].CanSpawn)
+                    {
+                        enemySpawners[spawnerIndex].SpawnEnemy();
+                        enemiesLeft--;
+                        enemiesCap--;
+                        _enemiesSpawned++;
+                    }
 
+
+                    // Failsafe1 for While Loop
                     if (enemiesCap <= 0)
+                    {
+                        break;
+                    }
+
+                    // Failsafe2 for While Loop
+                    bool oneCanSpawn = false;
+                    foreach (var spawner in enemySpawners)
+                    {
+                        if (spawner.CanSpawn)
+                        {
+                            oneCanSpawn = true;
+                        }
+                    }
+                    if (!oneCanSpawn)
                     {
                         break;
                     }
@@ -137,8 +156,11 @@ public class WaveSystem : MonoBehaviour
         if (_enemiesSpawned < _enemySpawnCap && _enemiesSpawned < _enemiesLeft)
         {
             int spawnerIndex = Random.Range(0, enemySpawners.Length);
-            enemySpawners[spawnerIndex].SpawnEnemy();
-            _enemiesSpawned++;
+            if (enemySpawners[spawnerIndex].CanSpawn)
+            {
+                enemySpawners[spawnerIndex].SpawnEnemy();
+                _enemiesSpawned++;
+            }
         }
     }
 
@@ -214,7 +236,7 @@ public class WaveSystem : MonoBehaviour
 
         if (_roundOver)
         {
-            if ( _roundStartDelayTimer >= 0 && _roundStartDelayTimer < _roundStartDelay / 10)
+            if (_roundStartDelayTimer >= 0 && _roundStartDelayTimer < _roundStartDelay / 10)
             {
                 tempCol = Color.white;
                 tempCol.a = 0.75f;

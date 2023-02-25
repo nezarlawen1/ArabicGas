@@ -46,7 +46,7 @@ public class HealthHandler : MonoBehaviour
 
         if (!_player)
         {
-            _pointMediator = FindObjectOfType<PointMediator>();
+            _pointMediator = PointMediator.Instance;
         }
     }
 
