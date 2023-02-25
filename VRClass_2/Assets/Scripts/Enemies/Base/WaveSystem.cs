@@ -20,11 +20,12 @@ public class WaveSystem : MonoBehaviour
     private bool _roundOver;
     [SerializeField] private float _roundStartDelay = 5;
     private float _roundStartDelayTimer;
+    private bool _canBeInstaKilled;
 
     [SerializeField] private EnemySpawner[] enemySpawners = new EnemySpawner[0];
 
     public GameObject Player { get => _player; }
-
+    public bool CanBeInstaKilled { get => _canBeInstaKilled; set => _canBeInstaKilled = value; }
 
     private void OnValidate()
     {
@@ -188,7 +189,7 @@ public class WaveSystem : MonoBehaviour
     }
 
     [ContextMenu("Destroy All Enemies")]
-    private void DestroyAllEnemies()
+    public void DestroyAllEnemies()
     {
         for (int a = 0; a < enemySpawners.Length; a++)
         {
