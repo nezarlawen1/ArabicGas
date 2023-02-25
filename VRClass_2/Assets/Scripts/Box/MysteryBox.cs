@@ -13,24 +13,13 @@ public class MysteryBox : MonoBehaviour
     private bool _activated;
 
 
-    private void Awake()
+    private void Start()
     {
         _playerPoints = PointMediator.Instance;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //RollBox();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void RollBox()
+    [ContextMenu("RollBox")]
+    public void RollBox()
     {
         if (_playerPoints.RemovePoints(_price) && !_activated)
         {
@@ -56,13 +45,5 @@ public class MysteryBox : MonoBehaviour
             nomag.CreateMag();
         }
         _activated = false;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            RollBox();
-        }
     }
 }
