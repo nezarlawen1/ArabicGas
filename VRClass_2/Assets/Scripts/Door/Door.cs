@@ -15,6 +15,8 @@ public class Door : MonoBehaviour
 
     private NavMeshSurface _navMeshSurfaceRef;
 
+    public bool Open { get => _open; }
+
 
     // Start is called before the first frame update
     private void Start()
@@ -60,7 +62,7 @@ public class Door : MonoBehaviour
 
     IEnumerator RebuildNavMesh()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         if (_navMeshSurfaceRef)
         {
             _navMeshSurfaceRef.BuildNavMesh();

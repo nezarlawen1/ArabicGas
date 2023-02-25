@@ -118,12 +118,31 @@ public class WaveSystem : MonoBehaviour
                 {
                     int spawnerIndex = Random.Range(0, enemySpawners.Length);
 
-                    enemySpawners[spawnerIndex].SpawnEnemy();
-                    enemiesLeft--;
-                    enemiesCap--;
-                    _enemiesSpawned++;
+                    if (enemySpawners[spawnerIndex].CanSpawn)
+                    {
+                        enemySpawners[spawnerIndex].SpawnEnemy();
+                        enemiesLeft--;
+                        enemiesCap--;
+                        _enemiesSpawned++;
+                    }
 
+
+                    // Failsafe1 for While Loop
                     if (enemiesCap <= 0)
+                    {
+                        break;
+                    }
+
+                    // Failsafe2 for While Loop
+                    bool oneCanSpawn = false;
+                    foreach (var spawner in enemySpawners)
+                    {
+                        if (spawner.CanSpawn)
+                        {
+                            oneCanSpawn = true;
+                        }
+                    }
+                    if (!oneCanSpawn)
                     {
                         break;
                     }
@@ -137,8 +156,11 @@ public class WaveSystem : MonoBehaviour
         if (_enemiesSpawned < _enemySpawnCap && _enemiesSpawned < _enemiesLeft)
         {
             int spawnerIndex = Random.Range(0, enemySpawners.Length);
-            enemySpawners[spawnerIndex].SpawnEnemy();
-            _enemiesSpawned++;
+            if (enemySpawners[spawnerIndex].CanSpawn)
+            {
+                enemySpawners[spawnerIndex].SpawnEnemy();
+                _enemiesSpawned++;
+            }
         }
     }
 
@@ -214,7 +236,7 @@ public class WaveSystem : MonoBehaviour
 
         if (_roundOver)
         {
-            if ( _roundStartDelayTimer >= 0 && _roundStartDelayTimer < _roundStartDelay / 10)
+            if (_roundStartDelayTimer >= 0 && _roundStartDelayTimer < _roundStartDelay / 10)
             {
                 tempCol = Color.white;
                 tempCol.a = 0.75f;
