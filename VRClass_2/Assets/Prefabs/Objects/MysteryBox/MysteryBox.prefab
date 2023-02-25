@@ -178,7 +178,6 @@ MonoBehaviour:
   _itemsList:
   - {fileID: 1768113704562581671, guid: 8d63040ab4fae214cbe97fdc64af0055, type: 3}
   - {fileID: 1613788347390316849, guid: 4202fe28998465040b3765b5e01cae8e, type: 3}
-  - {fileID: 1776199833161792012, guid: 063eb96a2ecaa114ba6ff89cc167647b, type: 3}
 --- !u!1 &5375240482151693256
 GameObject:
   m_ObjectHideFlags: 0

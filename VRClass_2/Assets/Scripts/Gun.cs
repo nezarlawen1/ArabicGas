@@ -25,6 +25,7 @@ public class Gun : MonoBehaviour
     public bool isMagIn = false;
     public bool CockedGun = false;
     public bool ControllerTriggerPushed = false;
+    public bool IsHeld;
 
     [Space(5)]
     private Rigidbody _rb;

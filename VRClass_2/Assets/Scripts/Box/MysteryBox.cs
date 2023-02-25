@@ -34,8 +34,14 @@ public class MysteryBox : MonoBehaviour
                 _activated = false;
                 _cooldownTimer = 0;
 
-                Destroy(_savedItem);
-                _savedItem = null;
+                if (_savedItem.TryGetComponent(out Gun gun))
+                {
+                    if (!gun.IsHeld)
+                    {
+                        Destroy(_savedItem);
+                        _savedItem = null;
+                    }
+                }
             }
             else
             {
