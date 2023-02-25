@@ -8,6 +8,11 @@ public class PointsSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _pointText;
     public int CurrentPoints;
 
+    private void OnValidate()
+    {
+        _pointText.text = CurrentPoints.ToString();
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -25,6 +25,7 @@ public class Gun : MonoBehaviour
     public bool isMagIn = false;
     public bool CockedGun = false;
     public bool ControllerTriggerPushed = false;
+    private bool _isHeld;
 
     [Space(5)]
     private Rigidbody _rb;
@@ -35,6 +36,8 @@ public class Gun : MonoBehaviour
     [Header("Hands References")]
     [SerializeField] HandsTriggerCheck RightHandTrig;
     [SerializeField] HandsTriggerCheck LeftHandTrig;
+
+    public bool IsHeld { get => _isHeld;}
 
     private void Awake()
     {
@@ -49,7 +52,7 @@ public class Gun : MonoBehaviour
     }
     private void Update()
     {
-        if (RightHandTrig != null)
+        if (RightHandTrig != null && LeftHandTrig != null)
         {
             if ((RightHandTrig.SliderTriggered || LeftHandTrig.SliderTriggered) && ControllerTriggerPushed)
             {
@@ -61,6 +64,11 @@ public class Gun : MonoBehaviour
 
         if (!isMagIn)
             CockedGun = false;
+    }
+
+    public void IsWeaponHeld(bool state)
+    {
+        _isHeld = state;
     }
 
     public void isMagazineIn(bool state)
@@ -78,7 +86,7 @@ public class Gun : MonoBehaviour
     }
     public void CreateMag()
     {
-        Instantiate(_magPrefab,transform.position,Quaternion.identity,null);
+        Instantiate(_magPrefab, transform.position, Quaternion.identity, null);
     }
 
     private void SetupInteractableEvents()
@@ -113,7 +121,7 @@ public class Gun : MonoBehaviour
     {
         if (RightHandTrig == null && other.CompareTag("Player"))
         {
-            var handTriggers = other.GetComponentsInChildren<HandsTriggerCheck>();
+            var handTriggers = other.transform.parent.GetComponentsInChildren<HandsTriggerCheck>();
             foreach (var item in handTriggers)
             {
                 if (item.gameObject.name == "RightHand Controller")

@@ -568,10 +568,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1768113704562581666}
+        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
+        m_MethodName: IsWeaponHeld
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1768113704562581666}
+        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
+        m_MethodName: IsWeaponHeld
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Activated:
     m_PersistentCalls:
       m_Calls: []
@@ -676,6 +700,7 @@ MonoBehaviour:
   isMagIn: 0
   CockedGun: 0
   ControllerTriggerPushed: 0
+  IsHeld: 0
   recoilBody: {fileID: 0}
   interactor: {fileID: 5450161947020740677}
   RightHandTrig: {fileID: 0}
@@ -1118,7 +1143,7 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
-  targetTag: Mag1911
+  targetTag: []
 --- !u!1 &5450161947315572124
 GameObject:
   m_ObjectHideFlags: 0
