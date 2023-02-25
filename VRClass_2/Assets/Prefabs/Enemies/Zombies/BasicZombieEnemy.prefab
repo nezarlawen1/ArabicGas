@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 6851584438776730660}
   - component: {fileID: 5297634510125059067}
   - component: {fileID: 1312678591217591460}
+  - component: {fileID: 7390449955176426260}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Enemy
@@ -230,6 +231,28 @@ MonoBehaviour:
   _deathScore: 100
   _hpColliders:
   - {fileID: 972774968349068618}
+  CanBeInstaKilled: 0
+--- !u!114 &7390449955176426260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3685210019606955156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e348914208e7d1e4484996e232688e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsToDrop:
+  - dropChance: 94
+    dropObject: {fileID: 0}
+  - dropChance: 2
+    dropObject: {fileID: 8488805988333816361, guid: b56f23eed35fe094287acdf6e8a5a6dd, type: 3}
+  - dropChance: 2
+    dropObject: {fileID: 7811842938919932339, guid: 1fe6be6a9d52ccf4688a95cdb6d5e33b, type: 3}
+  - dropChance: 2
+    dropObject: {fileID: 6385030611718907395, guid: 522bb4c458077f841a8c534fe2b6d816, type: 3}
 --- !u!1 &8159884901305727473
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,14 +332,10 @@ MonoBehaviour:
   Player: {fileID: 0}
   EnemyHealthHandler: {fileID: 1312678591217591460}
   AnimatorRef: {fileID: 811944164750593139}
-  CanPatrol: 0
   CanChase: 1
-  CanFly: 0
-  PatrolRange: 0
   AttackCoolDownTime: 3
   AlreadyAttacked: 0
   HitSuccess: 0
-  SightRange: 50
   AttackRange: 1
 --- !u!114 &6988282686613300520
 MonoBehaviour:
