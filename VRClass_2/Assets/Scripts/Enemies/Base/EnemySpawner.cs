@@ -11,6 +11,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int _spawnCount;
     [SerializeField] private bool _empty;
 
+    [SerializeField] private bool _canSpawn = true;
+
     public List<GameObject> SpawnedEnemies { get => _spawnedEnemies; }
     public bool Empty { get => _empty; }
 
@@ -51,5 +53,18 @@ public class EnemySpawner : MonoBehaviour
         {
             _empty = false;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (_canSpawn)
+        {
+            Gizmos.color = Color.yellow;
+        }
+        else
+        {
+            Gizmos.color = Color.red;
+        }
+        Gizmos.DrawWireCube(transform.position + new Vector3(0, 0.5f, 0), new Vector3(1, 1, 1));
     }
 }
