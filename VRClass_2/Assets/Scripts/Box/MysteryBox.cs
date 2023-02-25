@@ -8,9 +8,11 @@ public class MysteryBox : MonoBehaviour
 
     [SerializeField] private Transform _spawnLocation;
     [SerializeField] private int _price = 950;
+    [SerializeField] private float _cooldown = 10;
     [SerializeField] private List<GameObject> _itemsList = new List<GameObject>();
-    private GameObject _itemOutcome;
+    private GameObject _itemOutcome, _savedItem;
     private bool _activated;
+    private float _cooldownTimer;
 
 
     private void Start()
@@ -18,32 +20,63 @@ public class MysteryBox : MonoBehaviour
         _playerPoints = PointMediator.Instance;
     }
 
+    private void Update()
+    {
+        CoolDownHandle();
+    }
+
+    private void CoolDownHandle()
+    {
+        if (_activated)
+        {
+            if (_cooldownTimer >= _cooldown)
+            {
+                _activated = false;
+                _cooldownTimer = 0;
+
+                Destroy(_savedItem);
+                _savedItem = null;
+            }
+            else
+            {
+                _cooldownTimer += Time.deltaTime;
+            }
+        }
+        else
+        {
+            _cooldownTimer = 0;
+        }
+    }
+
     [ContextMenu("RollBox")]
     public void RollBox()
     {
-        if (_playerPoints.RemovePoints(_price) && !_activated)
+        if (!_activated)
         {
-            _activated = true;
+            if (_playerPoints.RemovePoints(_price))
+            {
+                _activated = true;
 
-            int itemIndex = Random.Range(0, _itemsList.Count);
-            _itemOutcome = _itemsList[itemIndex];
+                int itemIndex = Random.Range(0, _itemsList.Count);
+                _itemOutcome = _itemsList[itemIndex];
 
-            InstantiateItem();
+                InstantiateItem();
+            }
         }
     }
 
     private void InstantiateItem()
     {
-        GameObject savedItem = Instantiate(_itemOutcome, _spawnLocation.position, Quaternion.identity);
-        savedItem.transform.SetParent(null);
-        if (savedItem.TryGetComponent(out Gun gun))
-        {
-            gun.CreateMag();
-        }
-        else if (savedItem.TryGetComponent(out GunNoMag nomag))
-        {
-            nomag.CreateMag();
-        }
-        _activated = false;
+        _savedItem = Instantiate(_itemOutcome, _spawnLocation.position, _spawnLocation.localRotation, _spawnLocation);
+        _savedItem.GetComponent<Rigidbody>().useGravity = false;
+        _savedItem.GetComponent<Rigidbody>().isKinematic = true;
+        //if (_savedItem.TryGetComponent(out Gun gun))
+        //{
+        //    gun.CreateMag();
+        //}
+        //else if (_savedItem.TryGetComponent(out GunNoMag nomag))
+        //{
+        //    nomag.CreateMag();
+        //}
     }
 }
