@@ -34,18 +34,24 @@ public class MysteryBox : MonoBehaviour
                 _activated = false;
                 _cooldownTimer = 0;
 
-                if (_savedItem.TryGetComponent(out Gun gun))
-                {
-                    if (!gun.IsHeld)
-                    {
-                        Destroy(_savedItem);
-                        _savedItem = null;
-                    }
-                }
+
+                Destroy(_savedItem);
+                _savedItem = null;
             }
             else
             {
                 _cooldownTimer += Time.deltaTime;
+
+                if (_savedItem.TryGetComponent(out Gun gun))
+                {
+                    if (gun.IsHeld && _savedItem != null)
+                    {
+                        _savedItem = null;
+
+                        _activated = false;
+                        _cooldownTimer = 0;
+                    }
+                }
             }
         }
         else
@@ -73,9 +79,8 @@ public class MysteryBox : MonoBehaviour
 
     private void InstantiateItem()
     {
-        _savedItem = Instantiate(_itemOutcome, _spawnLocation.position, _spawnLocation.localRotation, _spawnLocation);
-        _savedItem.GetComponent<Rigidbody>().useGravity = false;
-        _savedItem.GetComponent<Rigidbody>().isKinematic = true;
+        _savedItem = Instantiate(_itemOutcome, _spawnLocation.position, _spawnLocation.localRotation);
+
         //if (_savedItem.TryGetComponent(out Gun gun))
         //{
         //    gun.CreateMag();
