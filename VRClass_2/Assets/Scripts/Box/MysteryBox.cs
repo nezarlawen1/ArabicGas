@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MysteryBox : MonoBehaviour
 {
-    private PointsSystem _playerPoints;
+    private PointMediator _playerPoints;
 
     [SerializeField] private Transform _spawnLocation;
     [SerializeField] private int _price = 950;
@@ -15,7 +15,7 @@ public class MysteryBox : MonoBehaviour
 
     private void Awake()
     {
-        //_playerPoints = FindObjectOfType<PointsSystem>();
+        _playerPoints = PointMediator.Instance;
     }
 
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class MysteryBox : MonoBehaviour
 
     private void RollBox()
     {
-        if (_playerPoints.DecreasePoints(_price) && !_activated)
+        if (_playerPoints.RemovePoints(_price) && !_activated)
         {
             _activated = true;
 
@@ -62,7 +62,6 @@ public class MysteryBox : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _playerPoints = other.GetComponent<PointsSystem>();
             RollBox();
         }
     }

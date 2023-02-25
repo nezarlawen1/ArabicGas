@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class PointMediator : MonoBehaviour
 {
+    public static PointMediator Instance;
+
     private PointsSystem _playerPointSystem;
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         _playerPointSystem = FindObjectOfType<PointsSystem>();
     }
 
@@ -17,8 +28,8 @@ public class PointMediator : MonoBehaviour
         _playerPointSystem.IncreasePoints(amount);
     }
 
-    public void RemovePoints(int amount)
+    public bool RemovePoints(int amount)
     {
-        _playerPointSystem.DecreasePoints(amount);
+        return _playerPointSystem.DecreasePoints(amount);
     }
 }
