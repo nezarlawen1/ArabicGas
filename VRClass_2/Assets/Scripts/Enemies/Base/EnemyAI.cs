@@ -12,14 +12,8 @@ public class EnemyAI : MonoBehaviour
     public Transform Player;
     [SerializeField] private HealthHandler EnemyHealthHandler;
     public Animator AnimatorRef;
-
-    // Patroling
-    public bool CanPatrol = false;
     public bool CanChase = true;
-    public bool CanFly = false;
-    public float PatrolRange;
-    private Vector3 WalkPoint;
-    private bool _walkPointSet;
+
 
     // Attacking
     public float AttackCoolDownTime;
@@ -27,7 +21,7 @@ public class EnemyAI : MonoBehaviour
     public bool HitSuccess;
 
     // States
-    public float SightRange, AttackRange;
+    public float AttackRange;
     private bool PlayerInSightRange, PlayerInAttackRange;
     private float _playerDistance;
 
@@ -50,14 +44,12 @@ public class EnemyAI : MonoBehaviour
         //Check for sight and attack range
         _playerDistance = Vector3.Distance(Player.transform.position, transform.position);
 
-        PlayerInSightRange = CheckRange(SightRange);
+        PlayerInSightRange = true;
         PlayerInAttackRange = CheckRange(AttackRange);
-        //PlayerInSightRange = Physics.CheckSphere(transform.position, SightRange, PlayerLayer);
-        //PlayerInAttackRange = Physics.CheckSphere(transform.position, AttackRange, PlayerLayer) && CanSeePlayer();
+
 
         ToggleHPBarState();
 
-        if (!PlayerInSightRange && !PlayerInAttackRange) Patroling();
         if (PlayerInSightRange && !PlayerInAttackRange) ChasePlayer();
         if (PlayerInAttackRange && PlayerInSightRange) AttackPlayer(false);
 
@@ -82,34 +74,6 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    virtual public void Patroling()
-    {
-        if (CanPatrol)
-        {
-            if (!_walkPointSet) SearchWalkPoint();
-
-            if (_walkPointSet)
-                Agent.SetDestination(WalkPoint);
-
-            Vector3 distanceToWalkPoint = transform.position - WalkPoint;
-
-            //Walkpoint reached
-            if (distanceToWalkPoint.magnitude < 1f)
-                _walkPointSet = false;
-        }
-    }
-
-    private void SearchWalkPoint()
-    {
-        //Calculate random point in range
-        float randomZ = Random.Range(-PatrolRange, PatrolRange);
-        float randomX = Random.Range(-PatrolRange, PatrolRange);
-
-        WalkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        if (Physics.Raycast(WalkPoint, -transform.up, 2f, GroundLayer))
-            _walkPointSet = true;
-    }
 
     private void ToggleHPBarState()
     {
@@ -141,36 +105,7 @@ public class EnemyAI : MonoBehaviour
         }
         if (CanChase)
         {
-            if (!CanFly)
-            {
-                Agent.SetDestination(Player.position);
-            }
-            else
-            {
-                Vector3 tempEn = transform.position;
-                Vector3 tempPl = Player.position;
-                tempEn.y = 0;
-                tempPl.y = 0;
-                if (Vector3.Distance(tempEn, tempPl) > AttackRange)
-                {
-                    Agent.SetDestination(Player.position);
-                }
-                else
-                {
-                    //Make sure enemy doesn't move
-                    tempEn.y = Player.position.y;
-                    Agent.SetDestination(tempEn);
-                }
-                FlightControl();
-            }
-        }
-    }
-
-    virtual public void FlightControl()
-    {
-        if (Player.transform.position.y != transform.position.y && CanFly)
-        {
-            transform.position = new Vector3(transform.position.x, Player.position.y, transform.position.z);
+            Agent.SetDestination(Player.position);
         }
     }
 
@@ -221,7 +156,7 @@ public class EnemyAI : MonoBehaviour
 
     virtual public void AnimationHandler()
     {
-        
+
     }
 
     // Registering To Player Indicator
@@ -248,7 +183,5 @@ public class EnemyAI : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, AttackRange);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, SightRange);
     }
 }

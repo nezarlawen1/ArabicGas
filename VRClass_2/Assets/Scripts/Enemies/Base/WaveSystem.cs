@@ -7,17 +7,17 @@ public class WaveSystem : MonoBehaviour
 {
     public static WaveSystem Instance;
 
-    [SerializeField] private GameObject _player;
+    private GameObject _player;
     [SerializeField] private TextMeshProUGUI _waveText;
     [SerializeField] private bool _canSpawn = true;
     [SerializeField] private int _waveIndex = 0;
     [SerializeField] private int _startEnemyCount = 6;
-    [SerializeField] private int _totalEnemyCount = 6;
-    [SerializeField] private int _enemiesLeft;
-    [SerializeField] private int _enemiesSpawned;
+    private int _totalEnemyCount = 6;
+    private int _enemiesLeft;
+    private int _enemiesSpawned;
     [SerializeField] private int _enemySpawnCap = 15;
     [SerializeField] private int _enemyAmountIndexer = 4;
-    [SerializeField] private bool _roundOver;
+    private bool _roundOver;
     [SerializeField] private float _roundStartDelay = 5;
     private float _roundStartDelayTimer;
 
