@@ -537,7 +537,8 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
-  targetTag: []
+  targetTag:
+  - MagShotGun
 --- !u!1 &1776199831840547416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,14 +1047,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16dab2187d054c4b84041b516d3bfd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6804149326290821667, guid: d3e367eb28af72d4683f11ea28faa0e8, type: 3}
+  bulletPrefab: {fileID: 466582921686066873, guid: 5c124e37bf03e4f429b6be9ae239c721, type: 3}
   shootPoint: {fileID: 1776199832274205261}
   _magPrefab: {fileID: 6804149326290821667, guid: a7206d238bc1f0647aa29fa2859464c3, type: 3}
   Magazine: {fileID: 6297072355477527994}
   _gunSound: {fileID: 1776199833161792014}
-  _gunFire: {fileID: 0}
-  _magazineLoad: {fileID: 0}
-  _cockSound: {fileID: 0}
+  _gunFire: {fileID: 8300000, guid: 03c76c8529e5a9648b01f2e8cfe9e95a, type: 3}
+  _magazineLoad: {fileID: 8300000, guid: a61970b59e5499f4f881c7dbfbcf3ab1, type: 3}
+  _cockSound: {fileID: 8300000, guid: 049be9000f266f94b9fc975533533944, type: 3}
   Force: 2
   bulletSpeed: 1000
   isMagIn: 0

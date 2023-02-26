@@ -46,10 +46,9 @@ public class GunNoMag : MonoBehaviour
             Pellets.Add(Quaternion.Euler(Vector3.zero));
         }
 
-
-        //RightHandTrig = GameObject.Find("RightHand Controller").GetComponent<HandsTriggerCheck>();
-        //LeftHandTrig = GameObject.Find("LeftHand Controller").GetComponent<HandsTriggerCheck>();
-        //recoilBody = RightHandTrig.GetComponentInChildren<Rigidbody>();
+        RightHandTrig = GameObject.Find("RightHand Controller").GetComponent<HandsTriggerCheck>();
+        LeftHandTrig = GameObject.Find("LeftHand Controller").GetComponent<HandsTriggerCheck>();
+        recoilBody = GameObject.Find("RightHandAttachPivot").GetComponent<Rigidbody>();
 
         _interactableGun = GetComponent<XRGrabInteractable>();
         //Magazine = interactor.selectTarget.gameObject.GetComponent<Magazine>();
@@ -80,6 +79,7 @@ public class GunNoMag : MonoBehaviour
     public void IsControllerTriggerPushed(bool state)
     {
         ControllerTriggerPushed = state;
+        _gunSound.PlayOneShot(_cockSound, 1);
     }
     public void SetMagazine()
     {
@@ -126,6 +126,7 @@ public class GunNoMag : MonoBehaviour
                 recoilBody.transform.localRotation = Quaternion.AngleAxis(-10 * Force, Vector3.right);
             }
             Magazine.RemoveBullet();
+            _gunSound.PlayOneShot(_gunFire, 1);
         }
     }
 
