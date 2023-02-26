@@ -26,6 +26,11 @@ public class EnemyAI : MonoBehaviour
     private bool PlayerInSightRange, PlayerInAttackRange;
     private float _playerDistance;
 
+    [Header("Sounds")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource audioSource2;
+    [SerializeField] AudioClip _breathing;
+    [SerializeField] AudioClip _gargle;
 
     private void Start()
     {
@@ -33,7 +38,8 @@ public class EnemyAI : MonoBehaviour
         _waveSystem = WaveSystem.Instance;
         Player = _waveSystem.Player.transform;
         EnemyHealthHandler.OnDeathOccured += EnemyHealthHandler_OnDeathOccured;
-
+        audioSource.pitch = Random.Range(0.8f, 1.2f);
+        audioSource.PlayOneShot(_breathing, 0.5f);
     }
 
     private void Update()
@@ -63,7 +69,7 @@ public class EnemyAI : MonoBehaviour
             HitSuccess = false;
             Invoke("RegisterIndicator", 0);
         }
-
+        
         EnemyHealthHandler.CanBeInstaKilled = _waveSystem.CanBeInstaKilled;
     }
 
@@ -135,6 +141,7 @@ public class EnemyAI : MonoBehaviour
             {
                 //Attack code here
                 AttackPatternController();
+                audioSource2.PlayOneShot(_gargle, 1);
                 //Debug.Log("Attacked");
                 //End of attack code
 

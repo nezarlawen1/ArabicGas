@@ -43,12 +43,11 @@ public class Gun : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _interactableGun = GetComponent<XRGrabInteractable>();
+        RightHandTrig = GameObject.Find("RightHand Controller").GetComponent<HandsTriggerCheck>();
+        LeftHandTrig = GameObject.Find("LeftHand Controller").GetComponent<HandsTriggerCheck>();
+        recoilBody = GameObject.Find("RightHandAttachPivot").GetComponent<Rigidbody>();
         //Magazine = interactor.selectTarget.gameObject.GetComponent<Magazine>();
         SetupInteractableEvents();
-
-        //RightHandTrig = GameObject.Find("RightHand Controller").GetComponent<HandsTriggerCheck>();
-        //LeftHandTrig = GameObject.Find("LeftHand Controller").GetComponent<HandsTriggerCheck>();
-        //recoilBody = RightHandTrig.GetComponentInChildren<Rigidbody>();
     }
     private void Update()
     {
@@ -79,6 +78,7 @@ public class Gun : MonoBehaviour
     public void IsControllerTriggerPushed(bool state)
     {
         ControllerTriggerPushed = state;
+        _gunSound.PlayOneShot(_cockSound, 1);
     }
     public void SetMagazine()
     {
