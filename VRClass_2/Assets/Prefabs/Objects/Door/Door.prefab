@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8637176026097335328}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LeftHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 8637176026476843734}
   - component: {fileID: 8637176026476843729}
   - component: {fileID: 8637176026476843728}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RightDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8637176026479319571}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RightHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8637176026515115010}
   - component: {fileID: 8637176026515115011}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 8637176026542673373}
   - component: {fileID: 8637176026542673372}
   - component: {fileID: 8637176026542673375}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SlidingDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8637176026560153239}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8637176027134118667}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SliderHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 8637176028165690445}
   - component: {fileID: 8637176028165690444}
   - component: {fileID: 8637176028165690447}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LeftDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

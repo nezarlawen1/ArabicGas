@@ -27,6 +27,7 @@ public class WaveSystem : MonoBehaviour
 
     public GameObject Player { get => _player; }
     public bool CanBeInstaKilled { get => _canBeInstaKilled; set => _canBeInstaKilled = value; }
+    public bool CanSpawn { get => _canSpawn; set => _canSpawn = value; }
 
     private void OnValidate()
     {

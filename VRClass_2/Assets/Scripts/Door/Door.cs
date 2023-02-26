@@ -13,8 +13,6 @@ public class Door : MonoBehaviour
     [SerializeField] private int _price = 1000;
     [SerializeField] private bool _open, _slider;
 
-    private NavMeshSurface _navMeshSurfaceRef;
-
     public bool Open { get => _open; }
 
 
@@ -22,8 +20,6 @@ public class Door : MonoBehaviour
     private void Start()
     {
         _playerPoints = PointMediator.Instance;
-
-        _navMeshSurfaceRef = FindObjectOfType<NavMeshSurface>();
     }
 
     // Update is called once per frame
@@ -56,16 +52,6 @@ public class Door : MonoBehaviour
         {
             _open = true;
             _openSFX.Play();
-            StartCoroutine(RebuildNavMesh());
-        }
-    }
-
-    IEnumerator RebuildNavMesh()
-    {
-        yield return new WaitForSeconds(1.5f);
-        if (_navMeshSurfaceRef)
-        {
-            _navMeshSurfaceRef.BuildNavMesh();
         }
     }
 }
