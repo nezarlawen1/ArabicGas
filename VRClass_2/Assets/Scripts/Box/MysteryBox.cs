@@ -6,7 +6,8 @@ public class MysteryBox : MonoBehaviour
 {
     private PointMediator _playerPoints;
 
-    [SerializeField] private Transform _spawnLocation;
+    [SerializeField] private Transform _spawnLocation, _magSpawnLocation;
+    [SerializeField] private int _magsToSpawn = 5, _shellsToSpawn = 18;
     [SerializeField] private int _price = 950;
     [SerializeField] private float _cooldown = 10;
     [SerializeField] private List<GameObject> _itemsList = new List<GameObject>();
@@ -81,13 +82,19 @@ public class MysteryBox : MonoBehaviour
     {
         _savedItem = Instantiate(_itemOutcome, _spawnLocation.position, _spawnLocation.localRotation);
 
-        //if (_savedItem.TryGetComponent(out Gun gun))
-        //{
-        //    gun.CreateMag();
-        //}
-        //else if (_savedItem.TryGetComponent(out GunNoMag nomag))
-        //{
-        //    nomag.CreateMag();
-        //}
+        if (_savedItem.TryGetComponent(out Gun gun))
+        {
+            for (int i = 0; i < _magsToSpawn; i++)
+            {
+                gun.CreateMag(_magSpawnLocation);
+            }
+        }
+        else if (_savedItem.TryGetComponent(out GunNoMag nomag))
+        {
+            for (int i = 0; i < _shellsToSpawn; i++)
+            {
+                nomag.CreateMag(_magSpawnLocation);
+            }
+        }
     }
 }

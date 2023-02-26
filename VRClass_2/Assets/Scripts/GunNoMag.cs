@@ -85,9 +85,9 @@ public class GunNoMag : MonoBehaviour
     {
         //Magazine = interactor.selectTarget.gameObject.GetComponent<Magazine>();
     }
-    public void CreateMag()
+    public void CreateMag(Transform transform)
     {
-        Instantiate(_magPrefab, transform.position, Quaternion.identity, null);
+        Instantiate(_magPrefab, transform.position, transform.rotation, null);
     }
     private void SetupInteractableEvents()
     {
