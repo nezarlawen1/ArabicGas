@@ -27,10 +27,10 @@ public class HandPresence : MonoBehaviour
 
         InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
 
-        foreach (var item in devices)
+        /*foreach (var item in devices)
         {
             Debug.Log(item.name + item.characteristics);
-        }
+        }*/
 
         if (devices.Count > 0)
         {
@@ -40,10 +40,10 @@ public class HandPresence : MonoBehaviour
             {
                 spawnedController = Instantiate(prefab, transform);
             }
-            else
+            /*else
             {
                 Debug.Log("Did not find corresponding controller model");
-            }
+            }*/
 
             spawnedHandModel = Instantiate(handModelPrefab, transform);
             spawnedHandModel.SetActive(true);

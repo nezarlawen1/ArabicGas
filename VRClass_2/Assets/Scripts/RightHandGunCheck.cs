@@ -24,7 +24,7 @@ public class RightHandGunCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (interactor.selectTarget.gameObject != null)
+        if (interactor.hasSelection)
         {
             switch (interactor.selectTarget.tag)
             {
