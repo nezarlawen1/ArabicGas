@@ -123,7 +123,8 @@ public class WaveSystem : MonoBehaviour
 
                     if (enemySpawners[spawnerIndex].CanSpawn)
                     {
-                        enemySpawners[spawnerIndex].SpawnEnemy();
+                        float delay = Random.Range(0.5f, 5);
+                        enemySpawners[spawnerIndex].Invoke("SpawnEnemy", delay);
                         enemiesLeft--;
                         enemiesCap--;
                         _enemiesSpawned++;
@@ -161,7 +162,8 @@ public class WaveSystem : MonoBehaviour
             int spawnerIndex = Random.Range(0, enemySpawners.Length);
             if (enemySpawners[spawnerIndex].CanSpawn)
             {
-                enemySpawners[spawnerIndex].SpawnEnemy();
+                float delay = Random.Range(0.5f, 5);
+                enemySpawners[spawnerIndex].Invoke("SpawnEnemy", delay);
                 _enemiesSpawned++;
             }
         }
