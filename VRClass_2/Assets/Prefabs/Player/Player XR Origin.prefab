@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 926868666645353944}
   - component: {fileID: 7787068395334973465}
   m_Layer: 11
-  m_Name: AttachPivot
+  m_Name: RightHandAttachPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
