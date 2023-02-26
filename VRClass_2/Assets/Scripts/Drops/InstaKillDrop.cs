@@ -21,6 +21,7 @@ public class InstaKillDrop : MonoBehaviour
             if (_timer >= _duration)
             {
                 WaveSystem.Instance.CanBeInstaKilled = false;
+                PlayerUIMediator.Instance.InstaKillIcon.SetActive(false);
                 Destroy(gameObject,0.1f);
             }
             else
@@ -68,6 +69,7 @@ public class InstaKillDrop : MonoBehaviour
             _instaKillSFX.Play();
             _gFX.SetActive(false);
             WaveSystem.Instance.CanBeInstaKilled = true;
+            PlayerUIMediator.Instance.InstaKillIcon.SetActive(true);
         }
     }
 

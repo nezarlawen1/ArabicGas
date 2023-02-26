@@ -22,6 +22,7 @@ public class DoublePointsDrop : MonoBehaviour
             if (_timer >= _duration)
             {
                 PointMediator.Instance._doublePoints = false;
+                PlayerUIMediator.Instance.DoublePointsIcon.SetActive(false);
                 Destroy(gameObject,0.1f);
             }
             else
@@ -69,6 +70,7 @@ public class DoublePointsDrop : MonoBehaviour
             _doubleXPSFX.Play();
             _gFX.SetActive(false);
             PointMediator.Instance._doublePoints = true;
+            PlayerUIMediator.Instance.DoublePointsIcon.SetActive(true);
         }
     }
 
