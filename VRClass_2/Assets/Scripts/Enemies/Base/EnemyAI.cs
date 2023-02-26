@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private HealthHandler EnemyHealthHandler;
     public Animator AnimatorRef;
     public bool CanChase = true;
+    private WaveSystem _waveSystem;
 
 
     // Attacking
@@ -29,8 +30,10 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         Agent = GetComponent<NavMeshAgent>();
-        Player = WaveSystem.Instance.Player.transform;
+        _waveSystem = WaveSystem.Instance;
+        Player = _waveSystem.Player.transform;
         EnemyHealthHandler.OnDeathOccured += EnemyHealthHandler_OnDeathOccured;
+
     }
 
     private void Update()
@@ -60,6 +63,8 @@ public class EnemyAI : MonoBehaviour
             HitSuccess = false;
             Invoke("RegisterIndicator", 0);
         }
+
+        EnemyHealthHandler.CanBeInstaKilled = _waveSystem.CanBeInstaKilled;
     }
 
     private bool CheckRange(float rangeToCheck)

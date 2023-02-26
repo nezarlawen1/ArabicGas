@@ -9,6 +9,7 @@ public class WaveSystem : MonoBehaviour
 
     private GameObject _player;
     [SerializeField] private TextMeshProUGUI _waveText;
+    [SerializeField] private AudioSource _waveSFX;
     [SerializeField] private bool _canSpawn = true;
     [SerializeField] private int _waveIndex = 0;
     [SerializeField] private int _startEnemyCount = 6;
@@ -20,11 +21,12 @@ public class WaveSystem : MonoBehaviour
     private bool _roundOver;
     [SerializeField] private float _roundStartDelay = 5;
     private float _roundStartDelayTimer;
+    private bool _canBeInstaKilled;
 
     [SerializeField] private EnemySpawner[] enemySpawners = new EnemySpawner[0];
 
     public GameObject Player { get => _player; }
-
+    public bool CanBeInstaKilled { get => _canBeInstaKilled; set => _canBeInstaKilled = value; }
 
     private void OnValidate()
     {
@@ -188,7 +190,7 @@ public class WaveSystem : MonoBehaviour
     }
 
     [ContextMenu("Destroy All Enemies")]
-    private void DestroyAllEnemies()
+    public void DestroyAllEnemies()
     {
         for (int a = 0; a < enemySpawners.Length; a++)
         {
@@ -203,6 +205,7 @@ public class WaveSystem : MonoBehaviour
     {
         if (_canSpawn)
         {
+            _waveSFX.Play();
             _waveIndex++;
             _totalEnemyCount = _startEnemyCount;
             _totalEnemyCount += _enemyAmountIndexer * (_waveIndex - 1);

@@ -34,6 +34,8 @@ public class HealthHandler : MonoBehaviour
     [Header("Colliders")]
     [SerializeField] private List<HealthCollider> _hpColliders;
 
+    public bool CanBeInstaKilled;
+
 
     private void Awake()
     {
@@ -116,20 +118,27 @@ public class HealthHandler : MonoBehaviour
         // Check if GameObject can be Affected by Damager
         if (gameObject.tag == "Player" && tempDamager.CanAffect == CanAffect.Player || gameObject.tag == "Enemy" && tempDamager.CanAffect == CanAffect.Enemy || tempDamager.CanAffect == CanAffect.Both)
         {
-            // If Damager is One Hit
-            if (tempDamager.DamagerType == DamagerType.OneHit)
-            {
-                _healthSystem.Damage((int)(tempDamager.DamageAmount * damageMulti));
-            }
-            // If Damager is Over Time
-            else if (tempDamager.DamagerType == DamagerType.OverTime)
-            {
-                // To Be Written
-            }
-            // If Damager is Insta Death
-            else if (tempDamager.DamagerType == DamagerType.InstaDeath)
+            if (CanBeInstaKilled)
             {
                 _healthSystem.Damage(_maxHP);
+            }
+            else
+            {
+                // If Damager is One Hit
+                if (tempDamager.DamagerType == DamagerType.OneHit)
+                {
+                    _healthSystem.Damage((int)(tempDamager.DamageAmount * damageMulti));
+                }
+                // If Damager is Over Time
+                else if (tempDamager.DamagerType == DamagerType.OverTime)
+                {
+                    // To Be Written
+                }
+                // If Damager is Insta Death
+                else if (tempDamager.DamagerType == DamagerType.InstaDeath)
+                {
+                    _healthSystem.Damage(_maxHP);
+                }
             }
 
             if (!_player)

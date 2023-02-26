@@ -16,6 +16,7 @@ TagManager:
   - Ak47Gun
   - 1911Gun
   - ShotgunGun
+  - Drop
   layers:
   - Default
   - TransparentFX
