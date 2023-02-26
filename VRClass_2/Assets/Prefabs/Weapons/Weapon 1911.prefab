@@ -700,7 +700,6 @@ MonoBehaviour:
   isMagIn: 0
   CockedGun: 0
   ControllerTriggerPushed: 0
-  IsHeld: 0
   recoilBody: {fileID: 0}
   interactor: {fileID: 5450161947020740677}
   RightHandTrig: {fileID: 0}
@@ -1143,7 +1142,8 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
-  targetTag: []
+  targetTag:
+  - Mag1911
 --- !u!1 &5450161947315572124
 GameObject:
   m_ObjectHideFlags: 0

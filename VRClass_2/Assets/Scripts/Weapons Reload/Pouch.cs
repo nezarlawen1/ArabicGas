@@ -25,6 +25,12 @@ public class Pouch : MonoBehaviour
     [SerializeField] private GameObject MagAK47;
     [SerializeField] private GameObject MagShotgun;
 
+    public bool Reload = false;
+
+    private int pistolMaxAmmo = 8;
+    private int arMaxAmmo = 30;
+    private int shotgunMaxAmmo = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,24 +47,18 @@ public class Pouch : MonoBehaviour
 
     public void IsMagIn()
     {
-        //Debug.Log(Socket.selectTarget.gameObject);
+        /*if (!Reload)
+        {*/
         if (Socket.selectTarget.gameObject.TryGetComponent(out Magazine mag))
         {
-            Debug.Log(Socket.selectTarget.gameObject);
             switch (Socket.selectTarget.gameObject.tag)
             {
                 case "Mag1911":
                     PistolAmmo += mag.BulletCount;
                     SetBulletAmmount();
-                    Debug.Log("mag1911");
                     break;
                 case "MagAK47":
-                    Debug.Log("magAK");
                     ARAmmo += mag.BulletCount;
-                    SetBulletAmmount();
-                    break;
-                case "MagShotGun":
-                    ShotgunAmmo++;
                     SetBulletAmmount();
                     break;
             }
@@ -67,31 +67,72 @@ public class Pouch : MonoBehaviour
         {
             if (Socket.selectTarget.gameObject.tag == "MagShotGun")
             {
-                ShotgunAmmo += noMag.BulletCount;
+                ShotgunAmmo++;
+                SetBulletAmmount();
             }
         }
 
         Destroy(Socket.selectTarget.gameObject);
-        SetBulletAmmount();
+        //}
     }
 
     public void IsMagOut()
     {
-        switch (RightHand.GetComponent<XRDirectInteractor>().selectTarget.gameObject.tag)
+        //Reload = true;
+        GetComponent<Collider>().enabled = false;
+        switch (RightHand.GetComponent<RightHandGunCheck>().gunHeld)
         {
-            case "AK47Gun":
-                GameObject newMagAK47 = Instantiate(MagAK47);
-                newMagAK47.transform.SetParent(null);
+            case RightHandGunCheck.GunHeld.AK:
+                if (ARAmmo > 0)
+                {
+                    GetComponent<XRGrabInteractable>().enabled = false;
+                    GameObject newMagAK47 = Instantiate(MagAK47, transform.position, Quaternion.identity);
+                    if (ARAmmo < arMaxAmmo && ARAmmo > 0)
+                    {
+                        newMagAK47.GetComponent<Magazine>().SetBulletCount(ARAmmo);
+                        ARAmmo = 0;
+                    }
+                    else
+                    {
+                        ARAmmo -= arMaxAmmo;
+                    }
+                }
+                StartCoroutine(TurnOnGrab());
                 break;
-            case "1911Gun":
-                GameObject newMag1911 = Instantiate(Mag1911);
-                newMag1911.transform.SetParent(null);
+            case RightHandGunCheck.GunHeld.M1911:
+                if (PistolAmmo > 0)
+                {
+                    GetComponent<XRGrabInteractable>().enabled = false;
+                    GameObject newMag1911 = Instantiate(Mag1911, transform.position, Quaternion.identity);
+                    if (PistolAmmo < pistolMaxAmmo && PistolAmmo > 0)
+                    {
+                        newMag1911.GetComponent<Magazine>().SetBulletCount(PistolAmmo);
+                        PistolAmmo = 0;
+                    }
+                    else
+                    {
+                        PistolAmmo -= pistolMaxAmmo;
+                    }
+                }
+                StartCoroutine(TurnOnGrab());
                 break;
-            case "ShotgunGun":
-                GameObject newMagShotgun = Instantiate(MagShotgun);
-                newMagShotgun.transform.SetParent(null);
+            case RightHandGunCheck.GunHeld.Shotgun:
+                if (ShotgunAmmo > 0)
+                {
+                    GetComponent<XRGrabInteractable>().enabled = false;
+                    GameObject newMagShotgun = Instantiate(MagShotgun, transform.position, Quaternion.identity);
+                    ShotgunAmmo -= shotgunMaxAmmo;
+                }
+                StartCoroutine(TurnOnGrab());
                 break;
         }
+        SetBulletAmmount();
+    }
 
+    IEnumerator TurnOnGrab()
+    {
+        yield return new WaitForSeconds(2);
+        GetComponent<XRGrabInteractable>().enabled = true;
+        GetComponent<Collider>().enabled = true;
     }
 }

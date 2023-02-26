@@ -11,9 +11,11 @@ public class XRSocketInteractorTag : XRSocketInteractor
     {
         foreach (var item in targetTag)
         {
-            return base.CanSelect(interactable) && interactable.CompareTag(item);
-
+            if (base.CanSelect(interactable) && interactable.CompareTag(item))
+            {
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 }

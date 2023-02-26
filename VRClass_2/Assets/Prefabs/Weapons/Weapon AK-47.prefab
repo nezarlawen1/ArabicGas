@@ -2540,7 +2540,8 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
-  targetTag: []
+  targetTag:
+  - MagAK47
 --- !u!1 &6520110286756516520
 GameObject:
   m_ObjectHideFlags: 0
