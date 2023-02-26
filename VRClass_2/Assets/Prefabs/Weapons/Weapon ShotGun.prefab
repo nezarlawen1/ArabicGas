@@ -537,7 +537,7 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
-  targetTag: MagShotGun
+  targetTag: []
 --- !u!1 &1776199831840547416
 GameObject:
   m_ObjectHideFlags: 0
