@@ -7,6 +7,7 @@ public class StartGame : MonoBehaviour
     private WaveSystem _waveSystem;
     private GameObject _player;
     [SerializeField] private Transform _spawnPos;
+    [SerializeField] private AudioSource _lobbyMusic;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class StartGame : MonoBehaviour
     {
         _player.transform.SetPositionAndRotation(_spawnPos.position, _spawnPos.rotation);
         _waveSystem.CanSpawn = true;
+        _lobbyMusic.Stop();
     }
 
     private void OnDrawGizmos()
