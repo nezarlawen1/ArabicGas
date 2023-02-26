@@ -2738,9 +2738,7 @@ MonoBehaviour:
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   targetTag:
-  - Ak47Gun
   - 1911Gun
-  - ShotgunGun
   - LightSaber
 --- !u!114 &7048189271779404832
 MonoBehaviour:
@@ -2798,8 +2796,6 @@ MonoBehaviour:
   m_RecycleDelayTime: 1
   targetTag:
   - 1911Gun
-  - Ak47Gun
-  - ShotgunGun
   - LightSaber
 --- !u!1001 &2312198034418845636
 PrefabInstance:
