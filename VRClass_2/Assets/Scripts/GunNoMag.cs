@@ -118,6 +118,7 @@ public class GunNoMag : MonoBehaviour
                 GameObject p = Instantiate(bulletPrefab, shootPoint.transform.position, shootPoint.transform.rotation);
                 p.transform.rotation = Quaternion.RotateTowards(p.transform.rotation, Pellets[i], SpreadAngle);
                 p.GetComponent<Rigidbody>().AddForce(p.transform.forward * bulletSpeed);
+                Destroy(p,2);
             }
             if (recoilBody != null)
             {

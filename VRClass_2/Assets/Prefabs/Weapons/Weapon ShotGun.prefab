@@ -1046,7 +1046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16dab2187d054c4b84041b516d3bfd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6804149326290821667, guid: a7206d238bc1f0647aa29fa2859464c3, type: 3}
+  bulletPrefab: {fileID: 6804149326290821667, guid: d3e367eb28af72d4683f11ea28faa0e8, type: 3}
   shootPoint: {fileID: 1776199832274205261}
   _magPrefab: {fileID: 6804149326290821667, guid: a7206d238bc1f0647aa29fa2859464c3, type: 3}
   Magazine: {fileID: 6297072355477527994}
