@@ -571,6 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63252a93c89ef8b409f1b866c55493f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _priceText: {fileID: 3522964687195580184}
   _button: {fileID: 6161360306609906939}
   _openSFX: {fileID: 7759796857234485137}
   _doorAnim: {fileID: 8637176026515115011}
@@ -775,3 +776,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2476106062117434667, guid: 5ed28e13a77e218408c4545bd8ca7531, type: 3}
   m_PrefabInstance: {fileID: 8637176027306496465}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3522964687195580184 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5132270012770694857, guid: 5ed28e13a77e218408c4545bd8ca7531, type: 3}
+  m_PrefabInstance: {fileID: 8637176027306496465}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

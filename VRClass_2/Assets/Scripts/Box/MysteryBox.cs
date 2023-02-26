@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MysteryBox : MonoBehaviour
 {
     private PointMediator _playerPoints;
 
+    [SerializeField] private TextMeshPro _priceText;
     [SerializeField] private Transform _spawnLocation, _magSpawnLocation;
     [SerializeField] private int _magsToSpawn = 5, _shellsToSpawn = 18;
     [SerializeField] private int _price = 950;
@@ -15,6 +17,10 @@ public class MysteryBox : MonoBehaviour
     private bool _activated;
     private float _cooldownTimer;
 
+    private void OnValidate()
+    {
+        _priceText.text = _price.ToString();
+    }
 
     private void Start()
     {
@@ -24,6 +30,7 @@ public class MysteryBox : MonoBehaviour
     private void Update()
     {
         CoolDownHandle();
+        _priceText.text = _price.ToString();
     }
 
     private void CoolDownHandle()

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,6 +8,7 @@ public class Door : MonoBehaviour
 {
     private PointMediator _playerPoints;
 
+    [SerializeField] private TextMeshPro _priceText;
     [SerializeField] private GameObject _button;
     [SerializeField] private AudioSource _openSFX;
     [SerializeField] private Animator _doorAnim;
@@ -15,6 +17,10 @@ public class Door : MonoBehaviour
 
     public bool Open { get => _open; }
 
+    private void OnValidate()
+    {
+        _priceText.text = _price.ToString();
+    }
 
     // Start is called before the first frame update
     private void Start()
@@ -44,6 +50,8 @@ public class Door : MonoBehaviour
             _button.SetActive(true);
             _doorAnim.SetBool("Open", false);
         }
+
+        _priceText.text = _price.ToString();
     }
 
     public void OpenDoor()
