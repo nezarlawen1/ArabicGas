@@ -44,7 +44,7 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.1
-  m_Height: 1
+  m_Height: 1.25
   m_Direction: 1
   m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!54 &1706484939582126915
@@ -123,7 +123,7 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.1
-  m_Height: 1
+  m_Height: 1.25
   m_Direction: 1
   m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!54 &1706484940053659669
@@ -274,7 +274,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.0737467
   MaxDistance: 3.488181
   Pan2D: 0
   rolloffMode: 0
@@ -396,7 +396,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.25
-  m_Speed: 2
+  m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 240
@@ -434,7 +434,7 @@ MonoBehaviour:
   AttackCoolDownTime: 3
   AlreadyAttacked: 0
   HitSuccess: 0
-  AttackRange: 1
+  AttackRange: 0.7
   audioSource: {fileID: 2896116972704322076}
   audioSource2: {fileID: 4627949022200566941}
   _breathing: {fileID: 8300000, guid: bf9bef5b78040d544a80aa584bcf2b1b, type: 3}
@@ -478,7 +478,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 122
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.0805235
   MaxDistance: 16
   Pan2D: 0
   rolloffMode: 0
