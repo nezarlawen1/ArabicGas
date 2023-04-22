@@ -40,11 +40,15 @@ public class FirebaseManager : MonoBehaviour
                     break;
                 case UnityWebRequest.Result.Success:
                     Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
-                    string jsonText = webRequest.downloadHandler.text;
-                    File.WriteAllText(Application.dataPath + "/Scripts/JSONText.txt", jsonText);
-                    JSONReaderRef.UpdateJSONData();
+                    JSONPart(webRequest.downloadHandler.text);
                     break;
             }
         }
+    }
+
+    private void JSONPart(string jsonText)
+    {
+        File.WriteAllText(Application.dataPath + "/Scripts/JSONText.txt", jsonText);
+        JSONReaderRef.UpdateJSONData();
     }
 }
