@@ -1,0 +1,36 @@
+{
+  "documents": [
+    {
+      "name": "projects/arabicfarts23/databases/(default)/documents/Players/1TsNqeoNDGMiDLnAfQLQ",
+      "fields": {
+        "Name": {
+          "stringValue": "Robby"
+        },
+        "Health": {
+          "integerValue": "50"
+        },
+        "PlayerItemsRef": {
+          "referenceValue": "projects/arabicfarts23/databases/(default)/documents/Player Items/dds71iNpNz3yks764bx1"
+        }
+      },
+      "createTime": "2023-04-22T10:15:52.050461Z",
+      "updateTime": "2023-04-22T20:29:11.489068Z"
+    },
+    {
+      "name": "projects/arabicfarts23/databases/(default)/documents/Players/t88McQOMt1X7uymO9PVj",
+      "fields": {
+        "Name": {
+          "stringValue": "Nizar"
+        },
+        "PlayerItemsRef": {
+          "referenceValue": "projects/arabicfarts23/databases/(default)/documents/Player Items/n9uKqmnTYzs13K7YAzYS"
+        },
+        "Health": {
+          "integerValue": "100"
+        }
+      },
+      "createTime": "2023-04-22T09:58:26.728326Z",
+      "updateTime": "2023-04-22T20:29:48.140523Z"
+    }
+  ]
+}

@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class FirebaseManager : MonoBehaviour
 {
+    public string URI;
+    public JSONReader JSONReaderRef;
+
     void Start()
     {
         // A correct website page.
-        StartCoroutine(GetRequest("https://firestore.googleapis.com/v1/projects/arabicfarts23/databases/(default)/documents/Players"));
+        StartCoroutine(GetRequest(URI));
 
         //// A non-existing page.
         //StartCoroutine(GetRequest("https://error.html"));
@@ -35,6 +40,9 @@ public class FirebaseManager : MonoBehaviour
                     break;
                 case UnityWebRequest.Result.Success:
                     Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+                    string jsonText = webRequest.downloadHandler.text;
+                    File.WriteAllText(Application.dataPath + "/Scripts/JSONText.txt", jsonText);
+                    JSONReaderRef.UpdateJSONData();
                     break;
             }
         }
