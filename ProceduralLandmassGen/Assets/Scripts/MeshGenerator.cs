@@ -20,6 +20,8 @@ public static class MeshGenerator
             {
                 meshData.Vertices[vertexIndex] = new Vector3(topLeftX + x, heightMap[x, y], topLeftZ - y);
                 meshData.UVs[vertexIndex] = new Vector2(x / (float)width, y / (float)height);
+                //meshData.UVs[vertexIndex] = new Vector2((width - 1 - x) / (float)width, y / (float)height);
+
 
                 if (x < width - 1 && y < height - 1)
                 {
