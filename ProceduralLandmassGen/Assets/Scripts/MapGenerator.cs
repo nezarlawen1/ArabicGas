@@ -8,8 +8,9 @@ public class MapGenerator : MonoBehaviour
     public DrawMode DrawModeType;
 
 
-    public int MapWidth;
-    public int MapHeight;
+    const int _mapChunkSize = 241;
+    [Range(0,6)]
+    public int LevelOfDetail;
     public float NoiseScale;
 
     public int Octaves;
@@ -32,8 +33,6 @@ public class MapGenerator : MonoBehaviour
 
     private void OnValidate()
     {
-        if (MapWidth < 1) MapWidth = 1;
-        if (MapHeight < 1) MapHeight = 1;
         if (Octaves < 0) Octaves = 0;
         if (Lacunarity < 1) Lacunarity = 1;
     }
@@ -42,23 +41,23 @@ public class MapGenerator : MonoBehaviour
     [ContextMenu("Generate")]
     public void GenerateMap()
     {
-        if (MapWidth > 0 && MapHeight > 0)
+        if (_mapChunkSize > 0 && _mapChunkSize > 0)
         {
             // Generating the Map Height Array
-            float[,] noiseMap = Noise.GenerateNoiseMap(MapWidth, MapHeight, Seed, NoiseScale, Octaves, Persistance, Lacunarity, Offset);
+            float[,] noiseMap = Noise.GenerateNoiseMap(_mapChunkSize, _mapChunkSize, Seed, NoiseScale, Octaves, Persistance, Lacunarity, Offset);
 
             // Setting Regions from Heights / Via Color Map
-            Color[] colorMap = new Color[MapWidth * MapHeight];
-            for (int y = 0; y < MapHeight; y++)
+            Color[] colorMap = new Color[_mapChunkSize * _mapChunkSize];
+            for (int y = 0; y < _mapChunkSize; y++)
             {
-                for (int x = 0; x < MapWidth; x++)
+                for (int x = 0; x < _mapChunkSize; x++)
                 {
                     float currentHeight = noiseMap[x, y];
                     for (int r = 0; r < Regions.Length; r++)
                     {
                         if (currentHeight <= Regions[r].Height)
                         {
-                            colorMap[y * MapWidth + x] = Regions[r].TColor;
+                            colorMap[y * _mapChunkSize + x] = Regions[r].TColor;
                             break;
                         }
                     }
@@ -80,11 +79,11 @@ public class MapGenerator : MonoBehaviour
             }
             else if (DrawModeType == DrawMode.ColorMap)
             {
-                _mapDisplay.DrawTexture(TextureGenerator.TextureFromColorMap(colorMap, MapWidth, MapHeight));
+                _mapDisplay.DrawTexture(TextureGenerator.TextureFromColorMap(colorMap, _mapChunkSize, _mapChunkSize));
             }
             else if (DrawModeType == DrawMode.Mesh)
             {
-                _mapDisplay.DrawMesh(MeshGenerator.GenerateTerrainMesh(noiseMap, MeshHeightMultiplier, MeshHeightCurve), TextureGenerator.TextureFromColorMap(colorMap, MapWidth, MapHeight));
+                _mapDisplay.DrawMesh(MeshGenerator.GenerateTerrainMesh(noiseMap, MeshHeightMultiplier, MeshHeightCurve, LevelOfDetail), TextureGenerator.TextureFromColorMap(colorMap, _mapChunkSize, _mapChunkSize));
             }
         }
     }
