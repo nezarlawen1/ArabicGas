@@ -6,7 +6,7 @@ using System.Threading;
 
 public class MapGenerator : MonoBehaviour
 {
-    public enum DrawMode { NoiseMap, ColorMap, Mesh };
+    public enum DrawMode { NoiseMap, ColorMap, Mesh, FalloffMap };
     public DrawMode DrawModeType;
 
     public Noise.NormalizeMode NormalizeType;
@@ -25,6 +25,8 @@ public class MapGenerator : MonoBehaviour
     public int Seed;
     public Vector2 Offset;
 
+    public bool UseFalloff;
+
     public float MeshHeightMultiplier;
     public AnimationCurve MeshHeightCurve;
 
@@ -35,6 +37,8 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] MapDisplay _mapDisplay;
 
 
+    private float[,] _falloffMap;
+
     private Queue<MapThreadInfo<MapData>> _mapDataThreadInfoQueue = new Queue<MapThreadInfo<MapData>>();
     private Queue<MapThreadInfo<MeshData>> _meshDataThreadInfoQueue = new Queue<MapThreadInfo<MeshData>>();
 
@@ -43,6 +47,13 @@ public class MapGenerator : MonoBehaviour
     {
         if (Octaves < 0) Octaves = 0;
         if (Lacunarity < 1) Lacunarity = 1;
+
+        _falloffMap = FalloffGenerator.GenerateFalloffMap(MapChunkSize);
+    }
+
+    private void Awake()
+    {
+        _falloffMap = FalloffGenerator.GenerateFalloffMap(MapChunkSize);
     }
 
     private void Update()
@@ -68,6 +79,10 @@ public class MapGenerator : MonoBehaviour
             else if (DrawModeType == DrawMode.Mesh)
             {
                 _mapDisplay.DrawMesh(MeshGenerator.GenerateTerrainMesh(mapData.HeightMap, MeshHeightMultiplier, MeshHeightCurve, PreviewLOD), TextureGenerator.TextureFromColorMap(mapData.ColorMap, MapChunkSize, MapChunkSize));
+            }
+            else if (DrawModeType == DrawMode.FalloffMap)
+            {
+                _mapDisplay.DrawTexture(TextureGenerator.TextureFromHeightMap(FalloffGenerator.GenerateFalloffMap(MapChunkSize)));
             }
         }
     }
@@ -149,6 +164,10 @@ public class MapGenerator : MonoBehaviour
             {
                 for (int x = 0; x < MapChunkSize; x++)
                 {
+                    if (UseFalloff)
+                    {
+                        noiseMap[x, y] = Mathf.Clamp01(noiseMap[x, y] - _falloffMap[x, y]);
+                    }
                     float currentHeight = noiseMap[x, y];
                     for (int r = 0; r < Regions.Length; r++)
                     {
