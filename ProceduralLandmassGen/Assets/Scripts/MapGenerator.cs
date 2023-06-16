@@ -12,7 +12,7 @@ public class MapGenerator : MonoBehaviour
     public Noise.NormalizeMode NormalizeType;
 
 
-    public const int MapChunkSize = 241;
+    public const int MapChunkSize = 239;
     [Range(0, 6)]
     public int PreviewLOD;
     public float NoiseScale;
@@ -156,7 +156,7 @@ public class MapGenerator : MonoBehaviour
         if (MapChunkSize > 0)
         {
             // Generating the Map Height Array
-            float[,] noiseMap = Noise.GenerateNoiseMap(MapChunkSize, MapChunkSize, Seed, NoiseScale, Octaves, Persistance, Lacunarity, center + Offset, NormalizeType);
+            float[,] noiseMap = Noise.GenerateNoiseMap(MapChunkSize + 2, MapChunkSize + 2, Seed, NoiseScale, Octaves, Persistance, Lacunarity, center + Offset, NormalizeType);
 
             // Setting Regions from Heights / Via Color Map
             Color[] colorMap = new Color[MapChunkSize * MapChunkSize];
