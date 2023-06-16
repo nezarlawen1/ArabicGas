@@ -38,8 +38,28 @@ public class MapGenerator : MonoBehaviour
     }
 
 
-    [ContextMenu("Generate")]
-    public void GenerateMap()
+    public void DisplayMap()
+    {
+        MapData mapData = GenerateMapData();
+
+        if (_mapDisplay)
+        {
+            if (DrawModeType == DrawMode.NoiseMap)
+            {
+                _mapDisplay.DrawTexture(TextureGenerator.TextureFromHeightMap(mapData.HeightMap));
+            }
+            else if (DrawModeType == DrawMode.ColorMap)
+            {
+                _mapDisplay.DrawTexture(TextureGenerator.TextureFromColorMap(mapData.ColorMap, MapChunkSize, MapChunkSize));
+            }
+            else if (DrawModeType == DrawMode.Mesh)
+            {
+                _mapDisplay.DrawMesh(MeshGenerator.GenerateTerrainMesh(mapData.HeightMap, MeshHeightMultiplier, MeshHeightCurve, LevelOfDetail), TextureGenerator.TextureFromColorMap(mapData.ColorMap, MapChunkSize, MapChunkSize));
+            }
+        }
+    }
+
+    private MapData GenerateMapData()
     {
         if (MapChunkSize > 0 && MapChunkSize > 0)
         {
@@ -64,29 +84,10 @@ public class MapGenerator : MonoBehaviour
                 }
             }
 
-            // Displaying the Map
-            DisplayMap(noiseMap, colorMap);
+            return new MapData(noiseMap, colorMap);
         }
     }
 
-    private void DisplayMap(float[,] noiseMap, Color[] colorMap)
-    {
-        if (_mapDisplay)
-        {
-            if (DrawModeType == DrawMode.NoiseMap)
-            {
-                _mapDisplay.DrawTexture(TextureGenerator.TextureFromHeightMap(noiseMap));
-            }
-            else if (DrawModeType == DrawMode.ColorMap)
-            {
-                _mapDisplay.DrawTexture(TextureGenerator.TextureFromColorMap(colorMap, MapChunkSize, MapChunkSize));
-            }
-            else if (DrawModeType == DrawMode.Mesh)
-            {
-                _mapDisplay.DrawMesh(MeshGenerator.GenerateTerrainMesh(noiseMap, MeshHeightMultiplier, MeshHeightCurve, LevelOfDetail), TextureGenerator.TextureFromColorMap(colorMap, MapChunkSize, MapChunkSize));
-            }
-        }
-    }
 }
 
 
@@ -97,4 +98,16 @@ public struct TerrainType
     [Range(0, 1)]
     public float Height;
     public Color TColor;
+}
+
+public struct MapData
+{
+    public float[,] HeightMap;
+    public Color[] ColorMap;
+
+    public MapData(float[,] heightMap, Color[] colorMap)
+    {
+        HeightMap = heightMap;
+        ColorMap = colorMap;
+    }
 }
