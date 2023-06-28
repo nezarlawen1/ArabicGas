@@ -85,9 +85,9 @@ public class AuthManager : MonoBehaviour
         StartCoroutine(UpdateUsernameAuth(usernameField.text));
         StartCoroutine(UpdateUsernameDatabase(usernameField.text));
 
-        StartCoroutine(UpdateXp(int.Parse(xpField.text)));
-        StartCoroutine(UpdateKills(int.Parse(killsField.text)));
-        StartCoroutine(UpdateDeaths(int.Parse(deathsField.text)));
+        //StartCoroutine(UpdateXp(int.Parse(xpField.text)));
+        //StartCoroutine(UpdateKills(int.Parse(killsField.text)));
+        //StartCoroutine(UpdateDeaths(int.Parse(deathsField.text)));
     }
 
     private IEnumerator Login(string _email, string _password)
@@ -130,7 +130,7 @@ public class AuthManager : MonoBehaviour
             confirmLoginText.text = "Logged In";
 
             yield return new WaitForSeconds(2);
-
+            
             usernameField.text = User.DisplayName;
             UiManagerRef.OpenSaveData();
             confirmLoginText.text = "";
