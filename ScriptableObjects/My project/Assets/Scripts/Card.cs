@@ -12,6 +12,8 @@ public class Card : ScriptableObject
     public Sprite artwork;
 
     public int numberValue;
+    internal object transform;
+
 
     public void Print()
     {
