@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
         LoginMenu.SetActive(true);
         RegisterMenu.SetActive(false);
         DataToSaveMenu.SetActive(false);
+        LeaderBoardMenu.SetActive(false);
     }
     public void OpenRegisterMenu()
     {
@@ -23,6 +24,7 @@ public class UIManager : MonoBehaviour
     public void OpenSaveData()
     {
         LoginMenu.SetActive(false);
+        LeaderBoardMenu.SetActive(false);
         DataToSaveMenu.SetActive(true);
     }
     public void OpenLeaderBoard()

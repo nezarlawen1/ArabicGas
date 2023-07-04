@@ -6,6 +6,7 @@ using Firebase.Database;
 using Firebase.Auth;
 using TMPro;
 using System.Drawing;
+using System.Linq;
 
 public class AuthManager : MonoBehaviour
 {
@@ -86,9 +87,13 @@ public class AuthManager : MonoBehaviour
         StartCoroutine(UpdateUsernameAuth(usernameField.text));
         StartCoroutine(UpdateUsernameDatabase(usernameField.text));
 
-        //StartCoroutine(UpdateXp(int.Parse(xpField.text)));
-        //StartCoroutine(UpdateKills(int.Parse(killsField.text)));
-        //StartCoroutine(UpdateDeaths(int.Parse(deathsField.text)));
+        StartCoroutine(UpdateXp(int.Parse(xpField.text)));
+        StartCoroutine(UpdateKills(int.Parse(killsField.text)));
+        StartCoroutine(UpdateDeaths(int.Parse(deathsField.text)));
+    }
+    public void ScoreboardButton()
+    {
+        StartCoroutine(LoadScoreboardData());
     }
 
     private IEnumerator Login(string _email, string _password)
@@ -129,6 +134,7 @@ public class AuthManager : MonoBehaviour
             Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
             warningLoginText.text = "";
             confirmLoginText.text = "Logged In";
+            StartCoroutine(LoadUserData());
 
             yield return new WaitForSeconds(2);
             
@@ -254,6 +260,7 @@ public class AuthManager : MonoBehaviour
         else
         {
             //Xp is now updated
+            Debug.Log("Saved XP");
         }
     }
     private IEnumerator UpdateKills(int _kills)
@@ -269,6 +276,7 @@ public class AuthManager : MonoBehaviour
         else
         {
             //Kills is now updated
+            Debug.Log("Saved Kills");
         }
     }
     private IEnumerator UpdateDeaths(int _deaths)
@@ -284,6 +292,67 @@ public class AuthManager : MonoBehaviour
         else
         {
             //Deaths is now updated
+            Debug.Log("Saved Deaths");
+        }
+    }
+
+    private IEnumerator LoadUserData()
+    {
+        var DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else if (DBTask.Result.Value == null)
+        {
+            xpField.text = "0";
+            killsField.text = "0";
+            deathsField.text = "0";
+        }
+        else
+        {
+            DataSnapshot snapshot = DBTask.Result;
+
+            xpField.text = snapshot.Child("xp").Value.ToString();
+            killsField.text = snapshot.Child("kills").Value.ToString();
+            deathsField.text = snapshot.Child("deaths").Value.ToString();
+        }
+    }
+
+    private IEnumerator LoadScoreboardData()
+    {
+        var DBTask = DBreference.Child("users").OrderByChild("kills").GetValueAsync();
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            DataSnapshot snapshot = DBTask.Result;
+
+            foreach (Transform child in ScoreboardContent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
+            {
+                string username = childSnapshot.Child("username").Value.ToString();
+                int kills = int.Parse(childSnapshot.Child("kills").Value.ToString());
+                int deaths = int.Parse(childSnapshot.Child("deaths").Value.ToString());
+                int xp = int.Parse(childSnapshot.Child("xp").Value.ToString());
+
+                GameObject scoreboardElement = Instantiate(scoreElement, ScoreboardContent);
+                scoreboardElement.GetComponent<ScoreElement>().NewScoreElement(username, kills, deaths, xp);
+            }
+
+            UiManagerRef.OpenLeaderBoard();
         }
     }
 }
