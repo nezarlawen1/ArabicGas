@@ -2,57 +2,65 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class CardInstantiator : MonoBehaviour
 {
     public List<Card> cardList;
     public GameObject cardDisplayPrefab;
-    public RectTransform cardContainer;
-    public List<Transform> cardHolders = new List<Transform>();
+    public List<Transform> cardHolders; // List of card holders
+    public List<Card> displayedCards = new List<Card>(); // List of displayed cards
 
-    public Button instantiateButton;
-    public Button discardButton;
-
-    private List<GameObject> instantiatedCards = new List<GameObject>();
-
-    void Start()
+    public void InstantiateCards(int numCards)
     {
-        instantiateButton.onClick.AddListener(InstantiateCards);
-        discardButton.onClick.AddListener(DiscardAllCards);
-    }
+        // Clear the previously displayed cards
+        ClearDisplayedCards();
 
-    public void InstantiateCards()
-    {
+        // Check if the number of card holders matches the requested number of cards
+        if (cardHolders.Count < numCards)
+        {
+            Debug.LogError("Not enough card holders for the requested number of cards.");
+            return;
+        }
+
         // Shuffle the card list
         ShuffleCardList();
 
-        // Discard any existing cards
-        DiscardAllCards();
-
-        for (int i = 0; i < cardList.Count; i++)
+        // Instantiate new cards in each holder
+        for (int i = 0; i < numCards; i++)
         {
             GameObject cardDisplayObject = Instantiate(cardDisplayPrefab, cardHolders[i]);
             cardDisplay cardDisplayComponent = cardDisplayObject.GetComponent<cardDisplay>();
             cardDisplayComponent.card = cardList[i];
             cardDisplayComponent.UpdateCardDisplay();
 
-            // Ignore scaling changes
-            cardDisplayObject.transform.localScale = Vector3.one;
-
-            instantiatedCards.Add(cardDisplayObject);
+            // Add the card to the displayed cards list
+            displayedCards.Add(cardList[i]);
         }
     }
 
-   public void DiscardAllCards()
+    public void DiscardAllCards()
     {
-        foreach (GameObject card in instantiatedCards)
-        {
-            Destroy(card);
-        }
-        instantiatedCards.Clear();
+        // Destroy all displayed cards
+        ClearDisplayedCards();
+
+        // Clear the list of displayed cards
+        displayedCards.Clear();
     }
 
-    public void ShuffleCardList()
+    private void ClearDisplayedCards()
+    {
+        // Destroy all displayed cards
+        foreach (Transform holder in cardHolders)
+        {
+            foreach (Transform child in holder)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+    }
+
+    private void ShuffleCardList()
     {
         for (int i = 0; i < cardList.Count - 1; i++)
         {
@@ -61,5 +69,64 @@ public class CardInstantiator : MonoBehaviour
             cardList[randomIndex] = cardList[i];
             cardList[i] = tempCard;
         }
+    }
+
+    public void SaveScene()
+    {
+        // Create a save data object to hold the displayed card data
+        SaveData saveData = new SaveData();
+        saveData.displayedCards = displayedCards;
+
+        // Convert the save data to JSON string
+        string json = JsonUtility.ToJson(saveData);
+
+        // Save the JSON string to a file
+        File.WriteAllText(Application.persistentDataPath + "/savedScene.json", json);
+    }
+
+    public void LoadScene()
+    {
+        // Check if a saved scene file exists
+        string filePath = Application.persistentDataPath + "/savedScene.json";
+        if (File.Exists(filePath))
+        {
+            // Read the JSON string from the file
+            string json = File.ReadAllText(filePath);
+
+            // Convert the JSON string back to save data object
+            SaveData saveData = JsonUtility.FromJson<SaveData>(json);
+
+            // Clear the previously displayed cards
+            ClearDisplayedCards();
+
+            // Instantiate new cards in each holder from the saved data
+            for (int i = 0; i < saveData.displayedCards.Count; i++)
+            {
+                // Check if the number of card holders is valid
+                if (i >= cardHolders.Count)
+                {
+                    Debug.LogWarning("Not enough card holders for the saved data.");
+                    break;
+                }
+
+                GameObject cardDisplayObject = Instantiate(cardDisplayPrefab, cardHolders[i]);
+                cardDisplay cardDisplayComponent = cardDisplayObject.GetComponent<cardDisplay>();
+                cardDisplayComponent.card = saveData.displayedCards[i];
+                cardDisplayComponent.UpdateCardDisplay();
+
+                // Add the card to the displayed cards list
+                displayedCards.Add(saveData.displayedCards[i]);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No saved scene file found.");
+        }
+    }
+
+    [System.Serializable]
+    private class SaveData
+    {
+        public List<Card> displayedCards;
     }
 }

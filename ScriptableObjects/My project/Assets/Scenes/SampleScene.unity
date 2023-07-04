@@ -1002,9 +1002,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85c81c00ffea443b20ecf40c349486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveButton: {fileID: 1971662731}
-  loadButton: {fileID: 1365805868}
-  cardInstantiator: {fileID: 1576381151}
 --- !u!4 &1124737561
 Transform:
   m_ObjectHideFlags: 0
@@ -1503,8 +1500,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 47ca06ac372ccf748bdad6201054326a, type: 2}
   - {fileID: 11400000, guid: 9acd7760783ffac46800770947a801b9, type: 2}
   cardDisplayPrefab: {fileID: 7403189511374645409, guid: 59fd8dd892e652c4f8fe5422916a9a62, type: 3}
-  cardContainer: {fileID: 1576381150}
   cardHolders:
+  - {fileID: 1210638212}
   - {fileID: 1623453808}
   - {fileID: 63999530}
   - {fileID: 1291346372}
@@ -1512,8 +1509,6 @@ MonoBehaviour:
   - {fileID: 1334152867}
   - {fileID: 720150901}
   - {fileID: 767185786}
-  instantiateButton: {fileID: 2002295169}
-  discardButton: {fileID: 952960877}
 --- !u!1 &1604296288
 GameObject:
   m_ObjectHideFlags: 0
