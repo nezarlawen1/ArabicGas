@@ -26,6 +26,9 @@ public class CardInstantiator : MonoBehaviour
         // Shuffle the card list
         ShuffleCardList();
 
+        // Clear the displayed cards list
+        displayedCards.Clear();
+
         // Instantiate new cards in each holder
         for (int i = 0; i < numCards; i++)
         {
@@ -48,7 +51,7 @@ public class CardInstantiator : MonoBehaviour
         displayedCards.Clear();
     }
 
-    private void ClearDisplayedCards()
+    public void ClearDisplayedCards()
     {
         // Destroy all displayed cards
         foreach (Transform holder in cardHolders)
@@ -60,7 +63,7 @@ public class CardInstantiator : MonoBehaviour
         }
     }
 
-    private void ShuffleCardList()
+    public void ShuffleCardList()
     {
         for (int i = 0; i < cardList.Count - 1; i++)
         {
@@ -71,7 +74,7 @@ public class CardInstantiator : MonoBehaviour
         }
     }
 
-    public void SaveScene()
+    public void SaveDisplayedCards()
     {
         // Create a save data object to hold the displayed card data
         SaveData saveData = new SaveData();
@@ -81,13 +84,13 @@ public class CardInstantiator : MonoBehaviour
         string json = JsonUtility.ToJson(saveData);
 
         // Save the JSON string to a file
-        File.WriteAllText(Application.persistentDataPath + "/savedScene.json", json);
+        File.WriteAllText(Application.persistentDataPath + "/savedCards.json", json);
     }
 
-    public void LoadScene()
+    public void LoadDisplayedCards()
     {
-        // Check if a saved scene file exists
-        string filePath = Application.persistentDataPath + "/savedScene.json";
+        // Check if a saved cards file exists
+        string filePath = Application.persistentDataPath + "/savedCards.json";
         if (File.Exists(filePath))
         {
             // Read the JSON string from the file
@@ -98,6 +101,9 @@ public class CardInstantiator : MonoBehaviour
 
             // Clear the previously displayed cards
             ClearDisplayedCards();
+
+            // Clear the displayed cards list
+            displayedCards.Clear();
 
             // Instantiate new cards in each holder from the saved data
             for (int i = 0; i < saveData.displayedCards.Count; i++)
@@ -120,9 +126,10 @@ public class CardInstantiator : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No saved scene file found.");
+            Debug.LogWarning("No saved cards file found.");
         }
     }
+
 
     [System.Serializable]
     private class SaveData

@@ -1320,8 +1320,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1124737560}
-        m_TargetAssemblyTypeName: SceneSaveLoader, Assembly-CSharp
+      - m_Target: {fileID: 1576381151}
+        m_TargetAssemblyTypeName: CardInstantiator, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
@@ -1501,7 +1501,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9acd7760783ffac46800770947a801b9, type: 2}
   cardDisplayPrefab: {fileID: 7403189511374645409, guid: 59fd8dd892e652c4f8fe5422916a9a62, type: 3}
   cardHolders:
-  - {fileID: 1210638212}
   - {fileID: 1623453808}
   - {fileID: 63999530}
   - {fileID: 1291346372}
@@ -1509,6 +1508,7 @@ MonoBehaviour:
   - {fileID: 1334152867}
   - {fileID: 720150901}
   - {fileID: 767185786}
+  displayedCards: []
 --- !u!1 &1604296288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,8 +1980,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1124737560}
-        m_TargetAssemblyTypeName: SceneSaveLoader, Assembly-CSharp
+      - m_Target: {fileID: 1576381151}
+        m_TargetAssemblyTypeName: CardInstantiator, Assembly-CSharp
         m_MethodName: SaveScene
         m_Mode: 1
         m_Arguments:
@@ -2117,11 +2117,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1576381151}
         m_TargetAssemblyTypeName: CardInstantiator, Assembly-CSharp
         m_MethodName: InstantiateCards
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

@@ -12,12 +12,9 @@ public class Card : ScriptableObject
     public Sprite artwork;
 
     public int numberValue;
-    public GameObject gameObject { get; private set; }
+    internal object transform;
 
-    public void SetGameObject(GameObject obj)
-    {
-        gameObject = obj;
-    }
+
     public void Print()
     {
 
