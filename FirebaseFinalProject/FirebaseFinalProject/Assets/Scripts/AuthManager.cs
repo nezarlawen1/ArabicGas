@@ -39,6 +39,8 @@ public class AuthManager : MonoBehaviour
     public GameObject scoreElement;
     public Transform ScoreboardContent;
 
+    private bool _savedUsername = false;
+
     private void Awake()
     {
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
@@ -85,6 +87,11 @@ public class AuthManager : MonoBehaviour
     public void SaveDataButton()
     {
         StartCoroutine(UpdateUsernameAuth(usernameField.text));
+        /*if (!_savedUsername)
+        {
+            DataSnapshot snapshot = DBreference.Child("users").Child(User.UserId).GetValueAsync().Result;
+            if (!snapshot.Child("username").Exists)
+        }*/
         StartCoroutine(UpdateUsernameDatabase(usernameField.text));
 
         StartCoroutine(UpdateXp(int.Parse(xpField.text)));
@@ -137,7 +144,7 @@ public class AuthManager : MonoBehaviour
             StartCoroutine(LoadUserData());
 
             yield return new WaitForSeconds(2);
-            
+
             usernameField.text = User.DisplayName;
             UiManagerRef.OpenSaveData();
             confirmLoginText.text = "";
@@ -244,6 +251,7 @@ public class AuthManager : MonoBehaviour
         else
         {
             //Database username is now updated
+            _savedUsername = true;
         }
     }
 
